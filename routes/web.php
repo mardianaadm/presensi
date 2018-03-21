@@ -23,7 +23,10 @@ Route::get('/dashboard', 'HomeController@dashboard');
 Route::get('/jadwal', 'HomeController@jadwal');
 Route::get('/kelas_siswa', 'HomeController@kelas_siswa');
 Route::get('/data_guru', 'HomeController@data_guru');
-Route::get('/master_kelas', 'HomeController@master_kelas');
 Route::get('/data_siswa', 'HomeController@data_siswa');
 Route::get('/data_sesi', 'HomeController@data_sesi');
 Route::get('/tahun_ajaran', 'HomeController@tahun_ajaran');
+
+Route::resource('master_kelas', 'MasterKelasController');
+Route::resource('urutan_kelas', 'UrutanKelasController');
+

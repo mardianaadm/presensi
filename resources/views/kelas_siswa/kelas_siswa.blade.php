@@ -15,10 +15,10 @@
                   <div class="form-group">
                     <label for="tingkat" class="col-md-2 control-label">Tingkat</label>
                       <div class="col-md-4">
-                        <label>
+                        <label class="col-xs-12">
                           <div class="radio">
                               <label>
-                                <input type="radio" name="tingkat" id="optionsRadios1" value="X" checked>X</label>
+                                <input type="radio" name="tingkat" id="optionsRadios1" value="X">X</label>
                               <label>
                                 <input type="radio" name="tingkat" id="optionsRadios2" value="XI">XI</label>
                               <label>
@@ -34,8 +34,9 @@
                         <label>
                           <select id="nama_jurusan" type="nama_jurusan" class="form-control" name="nama_jurusan" required>
                             <option>-</option>
-                            <!-- <option>MIPA</option>
-                            <option>SOSIAL</option> -->
+                            @foreach($jurusan as $item)
+                              <option value="{{$item->id_jurusan}}">{{$item->nama_jurusan}}</option>
+                            @endforeach
                           </select>
                         </label>
                       </div>

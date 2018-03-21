@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\UrutanKelas;
 
-class PresensiController extends Controller
+class UrutanKelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +25,7 @@ class PresensiController extends Controller
      */
     public function create()
     {
-        return view('master_kelas');
+        //
     }
 
     /**
@@ -34,7 +36,10 @@ class PresensiController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $urutan_kelas = new UrutanKelas;
+        $urutan_kelas->nama_urutan_kelas = $request->nama_urutan_kelas;
+        $urutan_kelas->save();
+        return Redirect::to('master_kelas');
     }
 
     /**

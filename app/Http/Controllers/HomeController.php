@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Jurusan;
 
 class HomeController extends Controller
 {
@@ -43,7 +44,8 @@ class HomeController extends Controller
 
     public function kelas_siswa()
     {
-        return view('kelas_siswa/kelas_siswa');
+        $jurusan = Jurusan::all(); 
+        return view('kelas_siswa/kelas_siswa')->with('jurusan',$jurusan);
     }
 
     public function data_guru()
@@ -51,10 +53,10 @@ class HomeController extends Controller
         return view('data_guru/data_guru');
     }
 
-    public function master_kelas()
-    {
-        return view('master_kelas/master_kelas');
-    }
+    // public function master_kelas()
+    // {
+        
+    // }
 
     public function data_siswa()
     {
