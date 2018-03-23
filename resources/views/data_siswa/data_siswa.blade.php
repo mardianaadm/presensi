@@ -31,13 +31,13 @@
 	                		<div class="form-group">
 	                			<label for="tingkat" class="col-md-2 control-label">Status</label>
 	                      			<div class="col-md-4">
-				                        <label>
+				                        <label class="col-xs-12">
 				                  			<div class="radio">
 				                    		<label>
-				                      			<input type="radio" name="optionsAktif" id="optionsAktif" value="optionsAktif" checked>Aktif
+				                      			<input type="radio" name="status" id="optionsAktif" value="optionsAktif" checked>Aktif
 				                    		</label>
 				                    		<label>
-				                      			<input type="radio" name="optionsTdkAktif" id="optionsTdkAktif" value="optionsTdkAktif">Tidak Aktif
+				                      			<input type="radio" name="status" id="optionsTdkAktif" value="optionsTdkAktif">Tidak Aktif
 				                    		</label>
 				                  		</div>
 				                  	</label>
@@ -70,7 +70,7 @@
 		                      <th>Nama</th>
 		                      <th>NISN</th>
 		                      <th>Status</th>
-		                      <th>Action</th>
+		                      <th>Aksi</th>
 		                    </tr>
 		                  </thead>
 		                </table> 

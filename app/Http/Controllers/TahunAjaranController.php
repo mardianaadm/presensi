@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Jurusan;
-use App\UrutanKelas;
+use App\TahunAjaran;
 
-class MasterKelasController extends Controller
+class TahunAjaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class MasterKelasController extends Controller
      */
     public function index()
     {
-        $jurusan = Jurusan::all();
-        $urutan_kelas = UrutanKelas::all();
-        return view('master_kelas/master_kelas')->with('jurusan',$jurusan)->with('urutan_kelas',$urutan_kelas);
+        $tahun_ajaran = TahunAjaran::all();
+        return view('tahun_ajaran/tahun_ajaran')->with('tahun_ajaran',$tahun_ajaran);
     }
 
     /**
@@ -39,10 +37,10 @@ class MasterKelasController extends Controller
      */
     public function store(Request $request)
     {
-        $jurusan = new Jurusan;
-        $jurusan->nama_jurusan = $request->nama_jurusan;
-        $jurusan->save();
-        return Redirect::to('master_kelas');
+        $tahun_ajaran = new TahunAjaran;
+        $tahun_ajaran->nama_semester = $request->nama_semester;
+        $tahun_ajaran->save();
+        return Redirect::to('tahun_ajaran');
     }
 
     /**
@@ -76,10 +74,7 @@ class MasterKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $jurusan = Jurusan::find($id);
-        $jurusan->nama_jurusan = $request->nama_jurusan;
-        $jurusan->save();
-        return Redirect::to('master_kelas');
+        //
     }
 
     /**

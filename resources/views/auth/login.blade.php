@@ -89,7 +89,7 @@
 	<footer class="main-footer">
     <div class="pull-right hidden-xs">
     </div>
-    <strong><center>Copyright &copy; 2014-2016. All rights reserved.</center></strong>
+    <strong><center>Copyright &copy; 2018 SMAN 3 MAGETAN. All rights reserved.</center></strong>
   	</footer>
 
 	<!-- jQuery -->

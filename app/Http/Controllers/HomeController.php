@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Jurusan;
+use App\UrutanKelas;
+use App\TahunAjaran;
 
 class HomeController extends Controller
 {
@@ -44,8 +46,9 @@ class HomeController extends Controller
 
     public function kelas_siswa()
     {
-        $jurusan = Jurusan::all(); 
-        return view('kelas_siswa/kelas_siswa')->with('jurusan',$jurusan);
+        $jurusan = Jurusan::all();
+        $urutan_kelas = UrutanKelas::all();
+        return view('kelas_siswa/kelas_siswa')->with('jurusan',$jurusan)->with('urutan_kelas',$urutan_kelas);
     }
 
     public function data_guru()
@@ -70,6 +73,7 @@ class HomeController extends Controller
 
     public function tahun_ajaran()
     {
+        $tahun_ajaran = TahunAjaran::all();
         return view('tahun_ajaran/tahun_ajaran');
     }
 }

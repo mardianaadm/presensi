@@ -18,9 +18,20 @@
 			                  <th>Semester</th>
 			                  <th>Tahun Ajaran</th>
 			                  <th>Status</th>
-			                  <th>Action</th>
+			                  <th>Aksi</th>
 			                </tr>
 		                </thead>
+                    <tbody>
+                      @foreach ($tahun_ajaran as $key => $value)
+                        <tr>
+                          <td>{{ $value->nama_semester }}</td>
+                          <td>{{ $value->masa_tahun_ajaran }}</td>
+                          <td>{{ $value->status_tahun_ajaran }}</td>
+                          <td>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-{{ $value->id_tahun_ajaran }}">Ubah</button>
+                          </td>
+                        </tr>
+                      @endforeach
 	              	</table>
 	            </div> <!-- /.box-body -->            
           	</div> <!-- /.box -->          
@@ -74,8 +85,8 @@
                       </div>
                     </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Save changes</button>
+                <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-success">Simpan</button>
               </div>
                 </form>
                 </div>

@@ -30,7 +30,7 @@
 	                		<div class="form-group">
 	                			<label for="tingkat" class="col-md-2 control-label">Status</label>
 	                      			<div class="col-md-4">
-				                        <label>
+				                        <label class="col-xs-12">
 				                  			<div class="radio">
 				                    		<label>
 				                      			<input type="radio" name="optionsAktif" id="optionsAktif" value="optionsAktif" checked>Aktif
@@ -76,7 +76,7 @@
 		                      <th>Nama</th>
 		                      <th>NIP</th>
 		                      <th>Status</th>
-		                      <th>Action</th>
+		                      <th>Aksi</th>
 		                    </tr>
 		                  </thead>
 		                </table> 

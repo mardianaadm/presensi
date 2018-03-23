@@ -48,8 +48,9 @@
                         <label>
                           <select id="nama_urutan_kelas" type="nama_urutan_kelas" class="form-control" name="nama_urutan_kelas" required>
                             <option>-</option>
-                            <!-- <option>MIPA</option>
-                            <option>SOSIAL</option> -->
+                            @foreach($urutan_kelas as $item)
+                              <option value="{{$item->id_urutan_kelas}}">{{$item->nama_urutan_kelas}}</option>
+                            @endforeach
                           </select>
                         </label>
                       </div>
@@ -88,25 +89,6 @@
         </div> <!-- /.col -->        
     </div> <!-- /.row -->      
 </section>
-
-<!-- <div class="panel-footer">
-  <div class="row">
-    <div class="col col-xs-4">Page 1 of 5</div>
-    <div class="col col-xs-8">
-      <ul class="pagination hidden-xs pull-right">
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-      </ul>
-      <ul class="pagination visible-xs pull-right">
-        <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-        <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</div> -->
 </body>
 
 @endsection

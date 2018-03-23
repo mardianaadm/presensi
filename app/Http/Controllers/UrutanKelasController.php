@@ -73,7 +73,10 @@ class UrutanKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $urutan_kelas = UrutanKelas::find($id);
+        $urutan_kelas->nama_urutan_kelas = $request->nama_urutan_kelas;
+        $urutan_kelas->save();
+        return Redirect::to('master_kelas');
     }
 
     /**

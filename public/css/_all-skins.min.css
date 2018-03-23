@@ -82,7 +82,8 @@
 	.skin-blue 
 	.main-sidebar,
 	.skin-blue 
-	.left-side{background-color:#327213} /*sidebar*/
+	.left-side{background-color:#000}
+	/*.left-side{background-color:#327213}*/ /*sidebar*/
 	.skin-blue 
 	.user-panel>
 	.info,
