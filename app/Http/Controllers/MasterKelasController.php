@@ -11,14 +11,16 @@ class MasterKelasController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *p
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $jurusan = Jurusan::all();
         $urutan_kelas = UrutanKelas::all();
-        return view('master_kelas/master_kelas')->with('jurusan',$jurusan)->with('urutan_kelas',$urutan_kelas);
+        return view('master_kelas/master_kelas')
+        ->with('jurusan',$jurusan)
+        ->with('urutan_kelas',$urutan_kelas);
     }
 
     /**
@@ -41,6 +43,7 @@ class MasterKelasController extends Controller
     {
         $jurusan = new Jurusan;
         $jurusan->nama_jurusan = $request->nama_jurusan;
+        $jurusan->status_jurusan = $request->status_jurusan;
         $jurusan->save();
         return Redirect::to('master_kelas');
     }
@@ -78,6 +81,7 @@ class MasterKelasController extends Controller
     {
         $jurusan = Jurusan::find($id);
         $jurusan->nama_jurusan = $request->nama_jurusan;
+        $jurusan->status_jurusan = $request->status_jurusan;
         $jurusan->save();
         return Redirect::to('master_kelas');
     }

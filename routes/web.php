@@ -28,6 +28,7 @@ Route::get('/data_sesi', 'HomeController@data_sesi');
 // Route::get('/tahun_ajaran', 'HomeController@tahun_ajaran');
 
 Route::resource('master_kelas', 'MasterKelasController');
-Route::resource('urutan_kelas', 'UrutansKelasController');
+Route::resource('urutan_kelas', 'UrutanKelasController');
 Route::resource('tahun_ajaran', 'TahunAjaranController');
+Route::resource('kelas_siswa', 'KelasSiswaController');
 

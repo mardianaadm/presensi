@@ -1,8 +1,5 @@
   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2018 SMAN 3 MAGETAN</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -17,6 +14,8 @@
 <script src="{{asset('js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('js/demo.js')}}"></script>
+<!-- Select2 -->
+<link rel="stylesheet" href="{{asset('js/select2.full.min.js')}}">
 @yield('js')
 <script type="">
   var url = window.location;

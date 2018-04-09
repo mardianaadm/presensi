@@ -38,6 +38,7 @@ class UrutanKelasController extends Controller
     {
         $urutan_kelas = new UrutanKelas;
         $urutan_kelas->nama_urutan_kelas = $request->nama_urutan_kelas;
+        $urutan_kelas->status_urutan_kelas = $request->status_urutan_kelas;
         $urutan_kelas->save();
         return Redirect::to('master_kelas');
     }
@@ -75,6 +76,7 @@ class UrutanKelasController extends Controller
     {
         $urutan_kelas = UrutanKelas::find($id);
         $urutan_kelas->nama_urutan_kelas = $request->nama_urutan_kelas;
+        $urutan_kelas->status_urutan_kelas = $request->status_urutan_kelas;
         $urutan_kelas->save();
         return Redirect::to('master_kelas');
     }

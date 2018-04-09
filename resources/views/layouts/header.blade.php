@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
+  <!-- Select 2 -->
+  <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
@@ -32,7 +34,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{url('dashboard')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
         <img src="{{asset('images/logo.jpg')}}" style="width: 32px;height: 32px;" class="user-image" alt="User Image">

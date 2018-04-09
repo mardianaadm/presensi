@@ -46,9 +46,7 @@ class HomeController extends Controller
 
     public function kelas_siswa()
     {
-        $jurusan = Jurusan::all();
-        $urutan_kelas = UrutanKelas::all();
-        return view('kelas_siswa/kelas_siswa')->with('jurusan',$jurusan)->with('urutan_kelas',$urutan_kelas);
+        
     }
 
     public function data_guru()

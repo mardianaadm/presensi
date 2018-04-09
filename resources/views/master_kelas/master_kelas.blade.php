@@ -16,6 +16,7 @@
 		                <thead>
 			                <tr>
 			                  <th>Jurusan</th>
+                        <th>Status</th>
 			                  <th>Aksi</th>
 			                </tr>
 		                </thead>
@@ -23,6 +24,7 @@
                       @foreach ($jurusan as $key => $value)
                         <tr>
                           <td>{{ $value->nama_jurusan }}</td>
+                          <td>{{ $value->status_jurusan }}</td>
                           <td>
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-j{{ $value->id_jurusan }}">Ubah</button>
                           </td>
@@ -37,7 +39,7 @@
                                 <h4 class="modal-title">Ubah Jurusan</h4>
                               </div>
                               <div class="modal-body">
-                                <form class="form-horizontal" action="{{ route('master_kelas.update',$value->id_jurusan) }}" method="post">
+                                <form class="form-horizontal" action="{{ route('master_kelas.update', $value->id_jurusan) }}" method="post">
                                   {{ csrf_field() }}
                                   {{ method_field('PATCH') }}
                                     <div class="box-body">
@@ -54,10 +56,10 @@
                                                 <label>
                                                 <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="status" id="optionsAktif" value="optionsAktif" checked>Aktif
+                                                    <input type="radio" name="status_jurusan" id="optionsAktif" value="Aktif" checked>Aktif
                                                 </label>
                                                 <label>
-                                                    <input type="radio" name="status" id="optionsTdkAktif" value="optionsTdkAktif">Tidak Aktif
+                                                    <input type="radio" name="status_jurusan" id="optionsTdkAktif" value="Tidak Aktif">Tidak Aktif
                                                 </label>
                                               </div>
                                                 </label>
@@ -148,13 +150,15 @@
 		                <thead>
 			                <tr>
 			                  <th>Urutan Kelas</th>
+                        <th>Status</th>
 			                  <th>Aksi</th>
 			                </tr>
 		                </thead>
                     <tbody>
-                      @foreach ($urutan_kelas as $key => $value)
+                      @foreach ($urutan_kelas as $key => $value) <!--untuk menampilkan isi data-->
                         <tr>
                           <td>{{ $value->nama_urutan_kelas }}</td>
+                          <td>{{ $value->status_urutan_kelas }}</td>
                           <td>
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-u{{ $value->id_urutan_kelas }}">Ubah</button>
                           </td>
@@ -186,10 +190,10 @@
                                                 <label>
                                                 <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="status" id="optionsAktif" value="optionsAktif" checked>Aktif
+                                                    <input type="radio" name="status_urutan_kelas" id="optionsAktif" value="Aktif" checked>Aktif
                                                 </label>
                                                 <label>
-                                                    <input type="radio" name="status" id="optionsTdkAktif" value="optionsTdkAktif">Tidak Aktif
+                                                    <input type="radio" name="status_urutan_kelas" id="optionsTdkAktif" value="Tidak Aktif">Tidak Aktif
                                                 </label>
                                               </div>
                                                 </label>
@@ -216,7 +220,7 @@
           	</div> <!-- /.box -->          
         </div> <!-- /.col -->
 
-        <!--POP UP URUTAN KELAS-->
+        <!--POP UP TAMBAH URUTAN KELAS-->
         <div class="modal fade" id="modal-tambahurutankelas">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -229,7 +233,7 @@
                 <form class="form-horizontal" action="{{ route('urutan_kelas.store') }}" method="post">
                   {{ csrf_field() }}
                     <div class="box-body">
-                      <!--ISI POP UP URUTAN KELAS-->
+                      <!--ISI POP UP TAMBAH URUTAN KELAS-->
                       <div class="form-group">
                           <label for="inputUrutan" class="col-sm-4 control-label">Urutan Kelas</label>
                           <div class="col-sm-4">
