@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\DataSiswa;
 
 class DataSiswaController extends Controller
 {
@@ -13,7 +15,10 @@ class DataSiswaController extends Controller
      */
     public function index()
     {
-        //
+        $nama_siswa = DataSiswa::all();
+        // $NISN = NISN::all();
+        return view('data_siswa/data_siswa')->with('nama_siswa, $nama_siswa');
+        // ->with('NISN, $NISN');
     }
 
     /**
@@ -34,7 +39,11 @@ class DataSiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $siswa = new DataSiswa;
+        $siswa->nama_siswa = $request->nama_siswa;
+        $siswa->NISN = $request->NISN;
+        $siswa->save();
+        return redirect('kelas_siswa');
     }
 
     /**

@@ -31,4 +31,5 @@ Route::resource('master_kelas', 'MasterKelasController');
 Route::resource('urutan_kelas', 'UrutanKelasController');
 Route::resource('tahun_ajaran', 'TahunAjaranController');
 Route::resource('kelas_siswa', 'KelasSiswaController');
+Route::resource('data_siswa', 'DataSiswaController');
 

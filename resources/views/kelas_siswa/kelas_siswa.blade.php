@@ -103,7 +103,7 @@
                       <th>Tingkat</th>
                       <th>Jurusan</th>
                       <th>Urutan Kelas</th>
-                      <th>Action</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tr>

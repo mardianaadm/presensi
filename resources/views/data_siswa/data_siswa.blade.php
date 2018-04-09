@@ -10,7 +10,8 @@
 	              		<h3 class="box-title">Tambah Data Siswa</h3>
 	            	</div>
 	            <!-- /.box-header -->
-		            <form class="form-horizontal">
+		            <form class="form-horizontal" method="post" action="{{ route('data_siswa.store') }}">
+		            	{{ csrf_field() }}
 	              		<div class="box-body">
 	                		<div class="form-group">
 	                  			<label for="inputNama" class="col-sm-2 control-label">Nama</label>
@@ -39,9 +40,9 @@
 				                    		<label>
 				                      			<input type="radio" name="status" id="optionsTdkAktif" value="optionsTdkAktif">Tidak Aktif
 				                    		</label>
-				                  		</div>
-				                  	</label>
-				                </div>
+				                  			</div>
+				                  		</label>
+				                	</div>
 	            			</div>
 	                	</div>
 	        		</form>
@@ -66,13 +67,19 @@
 		            <div class="box-body">
 		                <table id="example2" class="table table-bordered table-hover">
 		                  <thead>
+		                  	@foreach($nama_siswa as $data)
 		                    <tr>
-		                      <th>Nama</th>
-		                      <th>NISN</th>
-		                      <th>Status</th>
-		                      <th>Aksi</th>
+			                    <th>Nama</th>
+			                    <th>NISN</th>
+			                    <th>Status</th>
+			                    <th>Aksi</th>
 		                    </tr>
 		                  </thead>
+		                  	<tr>
+			                    <td>{{ $data->nama_siswa }}</td>
+			                    <td>{{ $data->NISN }}</td>
+		                  </tr>
+		                  @endforeach
 		                </table> 
 		            </div> <!-- /.box -->          
 	        	</div> <!-- /.col -->        
