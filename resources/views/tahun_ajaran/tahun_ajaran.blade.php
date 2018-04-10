@@ -139,10 +139,10 @@
 				                        <label>
 				                  			<div class="radio">
 				                    		<label>
-				                      			<input type="radio" name="status" id="optionsAktif" value="optionsAktif" checked>Aktif
+				                      			<input type="radio" name="status_tahun_ajaran" id="optionsAktif" value="Aktif" checked>Aktif
 				                    		</label>
 				                    		<label>
-				                      			<input type="radio" name="status" id="optionsTdkAktif" value="optionsTdkAktif">Tidak Aktif
+				                      			<input type="radio" name="status_tahun_ajaran" id="optionsTdkAktif" value="Tidak Aktif">Tidak Aktif
 				                    		</label>
 				                  		</div>
                                 </label>

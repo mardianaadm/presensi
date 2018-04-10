@@ -112,10 +112,10 @@
                                 <label>
                                 <div class="radio">
                                 <label>
-                                    <input type="radio" name="status" id="optionsAktif" value="optionsAktif" checked>Aktif
+                                    <input type="radio" name="status_jurusan" id="optionsAktif" value="Aktif" checked>Aktif
                                 </label>
                                 <label>
-                                    <input type="radio" name="status" id="optionsTdkAktif" value="optionsTdkAktif">Tidak Aktif
+                                    <input type="radio" name="status_jurusan" id="optionsTdkAktif" value="Tidak Aktif">Tidak Aktif
                                 </label>
                               </div>
                                 </label>
@@ -246,10 +246,10 @@
                                 <label>
                                 <div class="radio">
                                 <label>
-                                    <input type="radio" name="status" id="optionsAktif" value="optionsAktif" checked>Aktif
+                                    <input type="radio" name="status_urutan_kelas" id="optionsAktif" value="Aktif" checked>Aktif
                                 </label>
                                 <label>
-                                    <input type="radio" name="status" id="optionsTdkAktif" value="optionsTdkAktif">Tidak Aktif
+                                    <input type="radio" name="status_urutan_kelas" id="Tidak Aktif" value="optionsTdkAktif">Tidak Aktif
                                 </label>
                               </div>
                                 </label>
