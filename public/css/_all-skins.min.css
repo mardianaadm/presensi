@@ -1,6 +1,6 @@
 .skin-blue
 .main-header
-.navbar{background-color:#194C00} /*header kanan*/
+.navbar{background-color:#519917} /*header kanan*/
 .skin-blue
 .main-header
 .navbar 
@@ -68,13 +68,13 @@
 	.dropdown-menu li a:hover{background:#00FF00}}
 	.skin-blue 
 	.main-header 
-	.logo{background-color:#184D02;color:#fff;border-bottom:0 solid transparent} /*header kiri + tulisan SMA*/
+	.logo{background-color:#57A31A;color:#fff;border-bottom:0 solid transparent} /*header kiri + tulisan SMA*/
 	.skin-blue 
 	.main-header 
 	.logo:hover{background:rgba(0,0,0,0.3);color:#00FF00} /*button klik header kiri*/
 	.skin-blue 
 	.main-header li
-	.user-header{background-color:#194C00} /*bagian logout*/
+	.user-header{background-color:#519917} /*bagian logout*/
 	.skin-blue 
 	.content-header{background:transparent}
 	.skin-blue 
@@ -82,7 +82,7 @@
 	.skin-blue 
 	.main-sidebar,
 	.skin-blue 
-	.left-side{background-color:#0c330e}
+	.left-side{background-color:#222D32}
 	/*.left-side{background-color:#327213}*/ /*sidebar*/
 	.skin-blue 
 	.user-panel>
@@ -102,13 +102,13 @@
 	.active>a,
 	.skin-blue 
 	.sidebar-menu>li
-	.menu-open>a{background:rgba(0,0,0,0.3);color:#00FF00} /*menu sidebar ketika di klik*/
+	.menu-open>a{background:rgba(0,0,0,0.3);color:#6CCF1B} /*menu sidebar ketika di klik*/
 	.skin-blue 
 	.sidebar-menu>li
 	.active>a{border-left-color:#3c8dbc}
 	.skin-blue 
 	.sidebar-menu>li>
-	.treeview-menu{margin:0 1px;background-color:#145a19} /*dropdown sidebar*/
+	.treeview-menu{margin:0 1px;background-color:#1A2226} /*dropdown sidebar*/
 	.skin-blue 
 	.sidebar a{color:#FFFFFF} /*tulisan menu pada sidebar*/
 	.skin-blue 
@@ -122,7 +122,7 @@
 	.active>a,
 	.skin-blue 
 	.sidebar-menu 
-	.treeview-menu>li>a:hover{background:rgba(0,0,0,0.3);color:#00FF00} /*sidebar dropdown ketika di klik*/
+	.treeview-menu>li>a:hover{background:rgba(0,0,0,0.3);color:#6CCF1B} /*sidebar dropdown ketika di klik*/
 	.skin-blue 
 	.sidebar-form{border-radius:3px;border:1px solid #374850;margin:10px 10px}
 	.skin-blue 

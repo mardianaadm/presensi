@@ -21,7 +21,7 @@
 			                </tr>
 		                </thead>
                     <tbody>
-                      @foreach ($jurusan as $key => $value)
+                      @foreach ($jurusan as $value)
                         <tr>
                           <td>{{ $value->nama_jurusan }}</td>
                           <td>{{ $value->status_jurusan }}</td>

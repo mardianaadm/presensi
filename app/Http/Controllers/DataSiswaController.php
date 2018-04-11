@@ -41,6 +41,7 @@ class DataSiswaController extends Controller
         $siswa = new DataSiswa;
         $siswa->nama_siswa = $request->nama_siswa;
         $siswa->NISN = $request->NISN;
+        $siswa->NIS = $request->NIS;
         $siswa->status_siswa = $request->status_siswa;
         $siswa->save();
         return redirect('data_siswa');
@@ -77,7 +78,13 @@ class DataSiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $siswa = DataSiswa::find($id);
+        $siswa->nama_siswa = $request->nama_siswa;
+        $siswa->NISN = $request->NISN;
+        $siswa->NIS = $request->NIS;
+        $siswa->status_siswa = $request->status_siswa;
+        $siswa->save();
+        return Redirect::to('data_siswa');
     }
 
     /**

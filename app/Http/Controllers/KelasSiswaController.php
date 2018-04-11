@@ -87,7 +87,13 @@ class KelasSiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kelas = KelasSiswa::find($id);
+        $kelas->tingkat = $request->tingkat;
+        $kelas->id_jurusan = $request->nama_jurusan;
+        $kelas->id_urutan_kelas = $request->nama_urutan_kelas;
+        $kelas->id_user = Auth::user()->id_user;
+        $kelas->save();
+        return redirect('kelas_siswa');
     }
 
     /**

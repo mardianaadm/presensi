@@ -1,5 +1,5 @@
   <footer class="main-footer">
-    <strong>Copyright &copy; 2018 SMAN 3 MAGETAN</a>.</strong> All rights
+    <strong style="font-size: 13px;">Copyright &copy; 2018 SMAN 3 MAGETAN</a>.</strong> All rights
     reserved.
   </footer>
 
