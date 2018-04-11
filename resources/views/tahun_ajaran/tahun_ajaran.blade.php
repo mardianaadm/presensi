@@ -48,8 +48,8 @@
                                        <!--POP UP ISI EDIT TAHUN AJARAN-->
                                        <div class="form-group">
                                           <div class="form-group">
-                                             <label for="nama_semester" class="col-md-6 control-label">Semester</label>
-                                             <div class="col-md-4">
+                                             <label for="nama_semester" class="col-md-4 control-label">Semester</label>
+                                             <div class="col-md-8">
                                                 <label>
                                                    <select id="nama_semester" class="form-control" name="nama_semester" required>
                                                       <option value="Ganjil" <?php if($value->nama_semester=="Ganjil") {echo "selected='true'";} ?> >Ganjil</option>
@@ -59,14 +59,14 @@
                                              </div>
                                           </div>
                                           <div class="form-group">
-                                             <label for="inputNama" class="col-md-6 control-label">Tahun Ajaran</label>
-                                             <div class="col-md-4">
+                                             <label for="inputNama" class="col-md-4 control-label">Tahun Ajaran</label>
+                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" id="inputNama" name="masa_tahun_ajaran" value="{{ $value->masa_tahun_ajaran }}" placeholder="----/----">
                                              </div>
                                           </div>
                                           <div class="form-group">
-                                             <label for="tingkat" class="col-md-6 control-label">Status</label>
-                                             <div class="col-md-4">
+                                             <label for="tingkat" class="col-md-4 control-label">Status</label>
+                                             <div class="col-md-6">
                                                 <label>
                                                    <div class="radio">
                                                 <label>

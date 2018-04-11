@@ -56,10 +56,10 @@
                                                 <label>
                                                 <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="status_jurusan" id="optionsAktif" value="Aktif" checked>Aktif
+                                                    <input <?php if($value->status_jurusan=="Aktif") {echo "checked='true'";} ?> type="radio" name="status_jurusan" id="optionsAktif" value="Aktif" checked>Aktif
                                                 </label>
                                                 <label>
-                                                    <input type="radio" name="status_jurusan" id="optionsTdkAktif" value="Tidak Aktif">Tidak Aktif
+                                                    <input <?php if($value->status_jurusan=="Tidak Aktif") {echo "checked='true'";} ?> type="radio" name="status_jurusan" id="optionsTdkAktif" value="Tidak Aktif">Tidak Aktif
                                                 </label>
                                               </div>
                                                 </label>
@@ -190,10 +190,10 @@
                                                 <label>
                                                 <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="status_urutan_kelas" id="optionsAktif" value="Aktif" checked>Aktif
+                                                    <input <?php if($value->status_urutan_kelas=="Aktif") {echo "checked='true'";} ?> type="radio" name="status_urutan_kelas" id="optionsAktif" value="Aktif" checked>Aktif
                                                 </label>
                                                 <label>
-                                                    <input type="radio" name="status_urutan_kelas" id="optionsTdkAktif" value="Tidak Aktif">Tidak Aktif
+                                                    <input <?php if($value->status_urutan_kelas=="Tidak Aktif") {echo "checked='true'";} ?> type="radio" name="status_urutan_kelas" id="optionsTdkAktif" value="Tidak Aktif">Tidak Aktif
                                                 </label>
                                               </div>
                                                 </label>

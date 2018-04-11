@@ -46,20 +46,6 @@
                       </div>
                   </div>
 
-                  <!-- <div class="form-group">
-                <label>Multiple</label>
-                <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
-                        style="width: 30%;">
-                  <option>Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
-              </div>
- -->
                   <div class="form-group">
                     <label for="nama_urutan_kelas" class="col-md-2 control-label">Urutan Kelas</label>
                       <div class="col-md-4">
@@ -98,7 +84,6 @@
             <div class="box-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                    @foreach($KelasSiswa as $value)
                     <tr>
                       <th>Tingkat</th>
                       <th>Jurusan</th>
@@ -106,6 +91,7 @@
                       <th>Aksi</th>
                     </tr>
                   </thead>
+                    @foreach($KelasSiswa as $value)
                   <tr>
                     <td>{{ $value->tingkat }}</td>
                     <td>{{ $value->nama_jurusan }}</td>
@@ -147,7 +133,7 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="nama_jurusan" class="col-md-4 control-label">Jurusan</label>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                       <label>
                                         <select id="nama_jurusan" type="nama_jurusan" class="form-control" name="nama_jurusan" required>
                                           <option>---</option>
@@ -161,8 +147,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                  <label for="nama_urutan_kelas" class="col-md-6 control-label">Urutan Kelas</label>
-                                    <div class="col-md-4">
+                                  <label for="nama_urutan_kelas" class="col-md-4 control-label">Urutan Kelas</label>
+                                    <div class="col-md-2">
                                       <label>
                                         <select id="nama_urutan_kelas" type="nama_urutan_kelas" class="form-control" name="nama_urutan_kelas" value="{{ $value->nama_urutan_kelas }}" required>
                                           <option>---</option>
