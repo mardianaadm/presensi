@@ -74,5 +74,10 @@ class HomeController extends Controller
         $tahun_ajaran = TahunAjaran::all();
         return view('tahun_ajaran/tahun_ajaran');
     }
+
+    public function detail_jadwal()
+    {
+        return view('jadwal/detail_jadwal');
+    }
 }
 

@@ -33,4 +33,7 @@ Route::resource('tahun_ajaran', 'TahunAjaranController');
 Route::resource('kelas_siswa', 'KelasSiswaController');
 Route::resource('data_siswa', 'DataSiswaController');
 Route::resource('data_guru', 'DataGuruController');
+Route::resource('jadwal', 'JadwalController');
+Route::resource('detail_jadwal', 'DetailJadwalController');
+Route::resource('data_sesi', 'DataSesiController');
 

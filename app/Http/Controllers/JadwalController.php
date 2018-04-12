@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\TahunAjaran;
+use App\User;
 
-class TahunAjaranController extends Controller
+class JadwalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class TahunAjaranController extends Controller
      */
     public function index()
     {
-        $tahun_ajaran = TahunAjaran::all();
-        return view('tahun_ajaran/tahun_ajaran')->with('tahun_ajaran', $tahun_ajaran);
+        $data_guru = User::all();
+        return view('jadwal/jadwal')
+        ->with('data_guru', $data_guru);
     }
 
     /**
@@ -37,12 +38,7 @@ class TahunAjaranController extends Controller
      */
     public function store(Request $request)
     {
-        $tahun_ajaran = new TahunAjaran;
-        $tahun_ajaran->nama_semester = $request->nama_semester;
-        $tahun_ajaran->masa_tahun_ajaran = $request->masa_tahun_ajaran;
-        $tahun_ajaran->status_tahun_ajaran = $request->status_tahun_ajaran;
-        $tahun_ajaran->save();
-        return Redirect::to('tahun_ajaran');
+        //
     }
 
     /**
@@ -76,12 +72,7 @@ class TahunAjaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tahun_ajaran = TahunAjaran::find($id);
-        $tahun_ajaran->nama_semester = $request->nama_semester;
-        $tahun_ajaran->masa_tahun_ajaran = $request->masa_tahun_ajaran;
-        $tahun_ajaran->status_tahun_ajaran = $request->status_tahun_ajaran;
-        $tahun_ajaran->save();
-        return Redirect::to('tahun_ajaran');
+        //
     }
 
     /**

@@ -93,8 +93,8 @@
                         <!-- /.modal-content -->
                      </div>
                      <!-- END POP UP EDIT TAHUN AJARAN -->
-                  </tbody>
                   @endforeach
+                  </tbody> 
                </table>
             </div>
             <!-- /.box-body -->            

@@ -16,20 +16,18 @@
             <div class="box-body">
               	<table id="example1" class="table table-bordered table-hover">
 	                <thead>
-		                <tr>
-		                  <th>Nama</th>
-		                  <th>NIP</th>
-		                  <th>Aksi</th>
-		                </tr>
 	                </thead>
-	                @foreach($data_guru as $value)
-	                <tr>
-	                    <td>{{ $value->nama_user }}</td>
-	                    <td>{{ $value->NIP }}</td>
-	                    <td> <a href="{{ url ('/detail_jadwal/') }} / {{$value->id_guru}}" class="btn btn-success">Detail Jadwal Mengajar</a>
-	                    </td>
-	                </tr>
-	                @endforeach
+	                <tbody>
+                     @foreach ($detail_jadwal as $key => $value)
+                     <tr>
+                        <td>{{ $value->nama_semester }}</td>
+                        <td>{{ $value->masa_tahun_ajaran }}</td>
+                        <td>{{ $value->status_tahun_ajaran }}</td>
+                        <td>
+                           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-ubah{{ $value->id_tahun_ajaran }}">Ubah</button>
+                        </td>
+                     </tr>
+                 	</tbody>
               	</table>
             </div> <!-- /.box-body -->            
           	</div> <!-- /.box -->          
