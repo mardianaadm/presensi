@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\User;
 
 class DataGuruController extends Controller
 {
@@ -13,7 +15,9 @@ class DataGuruController extends Controller
      */
     public function index()
     {
-        //
+        $data_guru = User::all();
+        return view('data_guru/data_guru')
+        ->with('data_guru', $data_guru);
     }
 
     /**
@@ -34,7 +38,16 @@ class DataGuruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data_guru = new User;
+        $data_guru->NIP = $request->NIP;
+        $data_guru->password = $request->password;
+        $data_guru->nama_user = $request->nama_user;
+        $data_guru->alamat_user = $request->alamat_user;
+        $data_guru->jk_user = $request->jk_user;
+        $data_guru->level = "Guru";
+        $data_guru->status_user = $request->status_user;
+        $data_guru->save();
+        return redirect('data_guru');
     }
 
     /**
