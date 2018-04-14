@@ -13,13 +13,6 @@
 		            <form class="form-horizontal" method="post" action="{{ route('data_siswa.store') }}">
 		            	{{ csrf_field() }}
 	              		<div class="box-body">
-	                		<div class="form-group">
-	                  			<label for="inputNama" class="col-sm-2 control-label">Nama</label>
-		                  		<div class="col-sm-4">
-		                    		<input type="text" name="nama_siswa" class="form-control" id="inputNama" placeholder="Nama">
-		                  		</div>
-		                  			<div class="col-sm-4 pull-right"><button type="button" class="btn btn-success">Unduh Template</button></div>
-	                		</div>
 	                
 	                		<div class="form-group">
 	                 			<label for="inputNISN" class="col-sm-2 control-label">NISN</label>
@@ -34,6 +27,14 @@
 	                  			<div class="col-sm-4">
 	                    			<input type="text" name="NIS" class="form-control" id="inputNIS" placeholder="NIS">
 	                  			</div>
+	                  				<div class="col-sm-4 pull-right"><button type="button" class="btn btn-success">Unduh Template</button></div>
+	                		</div>
+
+	                		<div class="form-group">
+	                  			<label for="inputNama" class="col-sm-2 control-label">Nama</label>
+		                  		<div class="col-sm-4">
+		                    		<input type="text" name="nama_siswa" class="form-control" id="inputNama" placeholder="Nama">
+		                  		</div>
 	                		</div>
 
 	                		<div class="form-group">
@@ -75,18 +76,18 @@
 		                <table id="example2" class="table table-bordered table-hover">
 		                  <thead>
 		                    <tr>
-			                    <th>Nama</th>
 			                    <th>NISN</th>
 			                    <th>NIS</th>
+			                    <th>Nama</th>
 			                    <th>Status</th>
 			                    <th>Aksi</th>
 		                    </tr>
 		                  </thead>
 		                  	@foreach($data_siswa as $value)
 		                  	<tr>
-			                    <td>{{ $value->nama_siswa }}</td>
 			                    <td>{{ $value->NISN }}</td>
 			                    <td>{{ $value->NIS }}</td>
+			                    <td>{{ $value->nama_siswa }}</td>
 			                    <td>{{ $value->status_siswa }}</td>
 			                    <td>
                             		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-ubah{{ $value->id_siswa }}">Ubah</button>

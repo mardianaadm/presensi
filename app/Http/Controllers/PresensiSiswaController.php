@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\DetailJadwal;
+use Illuminate\Support\Facades\Redirect;
+use App\PresensiSiswa;
 
-class DetailJadwalController extends Controller
+class PresensiSiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class DetailJadwalController extends Controller
      */
     public function index()
     {
-        $detail_jadwal = DetailJadwal::all()->where('id_user',Auth::user()->id);
-        return view ('jadwal/detail_jadwal')
-        ->with('detail_jadwal', $detail_jadwal);
+        $presensi_siswa = PresensiSiswa::all();
+        return view('presensi_siswa/presensi_siswa')
+        ->with('presensi_siswa', $presensi_siswa);
     }
 
     /**
@@ -49,7 +49,7 @@ class DetailJadwalController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

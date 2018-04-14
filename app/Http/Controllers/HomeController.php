@@ -79,5 +79,10 @@ class HomeController extends Controller
     {
         return view('jadwal/detail_jadwal');
     }
+
+    public function presensi_siswa()
+    {
+        return view('presensi_siswa/presensi_siswa');
+    }
 }
 

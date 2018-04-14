@@ -42,7 +42,7 @@ class LoginController extends Controller
     }
 
     public function authenticated ($request, $user){
-        if($user->level=="admin"){
+        if($user->level=="Admin"){
             return redirect('/dashboard');
         }
 

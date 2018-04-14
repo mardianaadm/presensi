@@ -1,5 +1,10 @@
 @include('layouts/header')
+
+@if(Auth::user()->level=="Guru")
+@include('layouts/guru_sidebar')
+@elseif(Auth::user()->level=="Admin")
 @include('layouts/sidebar')
+@endif
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

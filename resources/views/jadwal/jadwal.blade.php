@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="info">
-    <h2><center>Jadwal Mengajar</br>Mapel Teknologi Informasi dan Komunikasi</br>Tahun Ajaran 2017/2018</center></h2>
+	@foreach($tahun_ajaran as $value)
+	@if($value->status_tahun_ajaran=='Aktif')
+    <h2><center>Jadwal Mengajar</br>Mapel Teknologi Informasi dan Komunikasi</br>Tahun Ajaran <?php echo $value->masa_tahun_ajaran?></center></h2>
+    @endif
+    @endforeach
 </div></br>
 
 <section class="content">
@@ -26,7 +30,7 @@
 	                <tr>
 	                    <td>{{ $value->nama_user }}</td>
 	                    <td>{{ $value->NIP }}</td>
-	                    <td> <a href="{{ url ('/detail_jadwal/') }} / {{$value->id_guru}}" class="btn btn-success">Detail Jadwal Mengajar</a>
+	                    <td> <a href="{{ route('jadwal.show', $value->id_user ) }}" class="btn btn-success">Detail Jadwal Mengajar</a>
 	                    </td>
 	                </tr>
 	                @endforeach
