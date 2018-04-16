@@ -24,7 +24,7 @@
                               <label>
                                 <input type="radio" name="tingkat" id="optionsRadios2" value="XI">XI</label>
                               <label>
-                                <input type="radio" name="tingkat" id="optionsRadios2" value="XII">XII</label>
+                                <input type="radio" name="tingkat" id="optionsRadios3" value="XII">XII</label>
                           </div>
                         </label>
                       </div>
@@ -32,8 +32,8 @@
 
                   <div class="form-group">
                     <label for="nama_jurusan" class="col-md-2 control-label">Jurusan</label>
-                      <div class="col-md-4">
-                        <label>
+                      <div class="col-md-6">
+                        <label class="col-xs-4">
                           <select id="nama_jurusan" type="nama_jurusan" class="form-control" name="nama_jurusan" required>
                             <option>---</option>
                             @foreach($jurusan as $value)
@@ -48,8 +48,8 @@
 
                   <div class="form-group">
                     <label for="nama_urutan_kelas" class="col-md-2 control-label">Urutan Kelas</label>
-                      <div class="col-md-4">
-                        <label>
+                      <div class="col-md-6">
+                        <label class="col-xs-4">
                           <select id="nama_urutan_kelas" type="nama_urutan_kelas" class="form-control" name="nama_urutan_kelas" required>
                             <option>---</option>
                             @foreach($urutan_kelas as $item)

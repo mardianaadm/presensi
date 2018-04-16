@@ -16,6 +16,8 @@
 <script src="{{asset('js/demo.js')}}"></script>
 <!-- Select2 -->
 <link rel="stylesheet" href="{{asset('js/select2.full.min.js')}}">
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
+@include('sweet::alert')
 @yield('js')
 <script type="">
   var url = window.location;

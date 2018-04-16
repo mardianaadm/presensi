@@ -56,9 +56,9 @@
 				                        </label>
 				                      </div>
 				                  </div>
-
-		                	</form>
-	                	</div>
+				        </div>
+		            </form>
+	            </div>
 	        		<!--submit-->
 	        		<div class="box-footer">
 		                <div class="col-md-4" style="margin-left: -1%"></div>

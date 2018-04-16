@@ -22,7 +22,8 @@ class KelasSiswaController extends Controller
         $urutan_kelas = UrutanKelas::all();
         $KelasSiswa = KelasSiswa::
             join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
-            ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')->get();
+            ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
+            ->get();
         return view('kelas_siswa/kelas_siswa')
         ->with('KelasSiswa', $KelasSiswa)
         ->with('jurusan', $jurusan)
@@ -47,13 +48,22 @@ class KelasSiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $kelas = new KelasSiswa;
-        $kelas->tingkat = $request->tingkat;
-        $kelas->id_jurusan = $request->nama_jurusan;
-        $kelas->id_urutan_kelas = $request->nama_urutan_kelas;
-        $kelas->id_user = Auth::user()->id_user;
-        $kelas->save();
-        return redirect('kelas_siswa');
+        /*cek nama dan urutan ada di DB*/
+        $cek = KelasSiswa::where('tingkat', $request->tingkat)
+        ->where('id_jurusan', $request->nama_jurusan)
+        ->where('id_urutan_kelas', $request->nama_urutan_kelas)
+        ->count();
+        if ($cek>0) { /*jika lebih dari 0 maka akan kembali ke halaman kelas_siswa*/
+            return redirect('kelas_siswa');
+        }else{ /*jika tidak maka menampilkan sesuai yg diinputkan*/
+            $kelas = new KelasSiswa;
+            $kelas->tingkat = $request->tingkat;
+            $kelas->id_jurusan = $request->nama_jurusan;
+            $kelas->id_urutan_kelas = $request->nama_urutan_kelas;
+            $kelas->id_user = Auth::user()->id_user;
+            $kelas->save();
+            return redirect('kelas_siswa');
+        }
     }
 
     /**

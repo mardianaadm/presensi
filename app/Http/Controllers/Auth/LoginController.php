@@ -45,7 +45,6 @@ class LoginController extends Controller
         if($user->level=="Admin"){
             return redirect('/dashboard');
         }
-
         return redirect('/dashboard');
     }
 }

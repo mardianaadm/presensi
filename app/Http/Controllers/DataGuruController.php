@@ -29,7 +29,6 @@ class DataGuruController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -81,7 +80,15 @@ class DataGuruController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data_guru = User::find($id);
+        $data_guru->NIP = $request->NIP;
+        $data_guru->nama_user = $request->nama_user;
+        $data_guru->alamat_user = $request->alamat_user;
+        $data_guru->jk_user = $request->jk_user;
+        $data_guru->level = "Guru";
+        $data_guru->status_user = $request->status_user;
+        $data_guru->save();
+        return redirect('data_guru');
     }
 
     /**

@@ -23,6 +23,8 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('css/bootstrap3-wysihtml5.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/fieldset.css')}}">
+  <link rel="stylesheet" href="{{asset('css/sweetalert.css')}}">
+
 
 
 @yield('css')

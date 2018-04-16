@@ -53,7 +53,7 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        $detail_jadwal =  \DB::select("SELECT nama_user, tingkat, nama_jurusan, nama_urutan_kelas, hari, jam, nama_semester, masa_tahun_ajaran FROM users
+        $detail_jadwal =  \DB::select("SELECT data_sesi.id_sesi as sesi, nama_user, tingkat, nama_jurusan, nama_urutan_kelas, hari, jam, nama_semester, masa_tahun_ajaran FROM users
             JOIN kelas_siswa ON users.id_user = kelas_siswa.id_user
             JOIN jurusan ON kelas_siswa.id_jurusan = jurusan.id_jurusan
             JOIN urutan_kelas ON kelas_siswa.id_urutan_kelas = urutan_kelas.id_urutan_kelas
