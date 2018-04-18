@@ -18,16 +18,16 @@
 	                 			<label for="inputNISN" class="col-sm-2 control-label">NISN</label>
 	                  			<div class="col-sm-4">
 	                    			<input type="text" name="NISN" class="form-control" id="inputNISN" placeholder="NISN">
-	                  			</div>
-	                  				<div class="col-sm-4 pull-right"><button type="button" class="btn btn-success">Unggah File</button></div>
+	                  			</div></br>
+	                  				<div class="col-sm-4 pull-right"><button type="button" class="btn btn-success">Unduh Template</button></div>
 	                		</div>
 
 	                		<div class="form-group">
 	                 			<label for="inputNIS" class="col-sm-2 control-label">NIS</label>
 	                  			<div class="col-sm-4">
 	                    			<input type="text" name="NIS" class="form-control" id="inputNIS" placeholder="NIS">
-	                  			</div>
-	                  				<div class="col-sm-4 pull-right"><button type="button" class="btn btn-success">Unduh Template</button></div>
+	                  			</div></br>
+	                  				<div class="col-sm-4 pull-right"><button type="button" class="btn btn-success">Unggah File</button></div>
 	                		</div>
 
 	                		<div class="form-group">
@@ -35,7 +35,7 @@
 		                  		<div class="col-sm-4">
 		                    		<input type="text" name="nama_siswa" class="form-control" id="inputNama" placeholder="Nama">
 		                  		</div>
-	                		</div>
+	                		</div></br>
 
 	                		<div class="form-group">
 	                			<label for="tingkat" class="col-md-2 control-label">Status</label>
