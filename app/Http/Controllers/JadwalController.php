@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Redirect;
 use App\User;
 use App\TahunAjaran;
 use App\DataSesi;
+use App\Jadwal;
+use App\UrutanKelas;
+use App\Jurusan;
+// use App\JadwalMengajar;
 
 class JadwalController extends Controller
 {
@@ -42,7 +46,7 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -53,7 +57,7 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        $detail_jadwal =  \DB::select("SELECT data_sesi.id_sesi as sesi, nama_user, tingkat, nama_jurusan, nama_urutan_kelas, hari, jam, nama_semester, masa_tahun_ajaran FROM users
+        $detail_jadwal =  \DB::select("SELECT data_sesi.id_sesi as sesi, nama_user, tingkat, nama_jurusan, nama_urutan_kelas, hari, jam, nama_semester, masa_tahun_ajaran, jadwal_mengajar.id_jadwal_mengajar FROM users
             JOIN kelas_siswa ON users.id_user = kelas_siswa.id_user
             JOIN jurusan ON kelas_siswa.id_jurusan = jurusan.id_jurusan
             JOIN urutan_kelas ON kelas_siswa.id_urutan_kelas = urutan_kelas.id_urutan_kelas
@@ -63,7 +67,16 @@ class JadwalController extends Controller
             JOIN tahun_ajaran ON jadwal_mengajar.id_tahun_ajaran = tahun_ajaran.id_tahun_ajaran
             WHERE users.id_user = $id AND tahun_ajaran.status_tahun_ajaran = 'Aktif'");
         $data_sesi = DataSesi::all();
+        $jadwal = Jadwal::all();
+        $user = User::all();
+        $jurusan = Jurusan::all();
+        $urutanKelas = UrutanKelas::all();
+
         return view ('jadwal/detail_jadwal')
+        ->with('jadwal', $jadwal)
+        ->with('user', $user)
+        ->with('jurusan', $jurusan)
+        ->with('urutanKelas', $urutanKelas)
         ->with('detail_jadwal', $detail_jadwal)
         ->with('data_sesi', $data_sesi);
     }
