@@ -102,6 +102,7 @@
          <!-- /.box -->          
       </div>
       <!-- /.col -->
+      
       <!--POP UP TAMBAH TAHUN AJARAN-->
       <div class="modal fade" id="modal-tambahtahunajaran">
          <div class="modal-dialog">
@@ -168,9 +169,16 @@
 </body>
 @endsection
 @section('js')
-<script type="text/javascript">
-   $('#example1').DataTable({
-     "ordering": false
-   });
+<script>
+  $(function () {
+    $('#example1').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    })
+  })
 </script>
 @endsection

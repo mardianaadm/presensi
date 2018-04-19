@@ -209,9 +209,16 @@
 </body>
 @endsection
 @section('js')
-<script type="text/javascript">
-$('#example2').DataTable({
-  "ordering": false
-});
+<script>
+  $(function () {
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    })
+  })
 </script>
 @endsection

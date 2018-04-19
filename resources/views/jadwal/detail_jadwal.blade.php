@@ -29,7 +29,6 @@
 						</thead>
 						<tbody>
 						<?php 
-						dd($detail_jadwal);
 							foreach ($data_sesi as $value) {
 								echo "<tr>";
 								echo "<td>".$value->jam."</td>"; /*menampilkan ist jam*/
@@ -37,31 +36,38 @@
 									if ($value->jam == "07.00 - 07.45" && $i ==0) {  /*jika hari senin sesi 1 menampilkan upacara*/
 										echo "<td><center>Upacara</center></td>";
 									}else{ 
-										foreach ($detail_jadwal as $value) {
-											if ($i == 0) {
-												
-											}elseif ($i == 1) {
-												# code...
-											}elseif ($i == 2) {
-												# code...
-											}elseif ($i == 3) {
-												# code...
-											}elseif ($i == 4) {
-												# code...
-											}elseif ($i == 5) {
-												# code...
-											}else{
+										$cek = 0;
+										foreach ($detail_jadwal as $value1) {
+											if ($value->jam == $value1->jam && $i == 0 && $value1->hari =="Senin") {
+												echo "<td><center>".$value1->tingkat." ".$value1->nama_jurusan." ".$value1->nama_urutan_kelas."</center></td>";
+												$cek = 1;
+
+											}if ($value->jam == $value1->jam && $i == 1 && $value1->hari =="Selasa") {
+												echo "<td><center>".$value1->tingkat." ".$value1->nama_jurusan." ".$value1->nama_urutan_kelas."</center></td>";
+												$cek = 1;
+
+											}if ($value->jam == $value1->jam && $i == 2 && $value1->hari =="Rabu") {
+												echo "<td><center>".$value1->tingkat." ".$value1->nama_jurusan." ".$value1->nama_urutan_kelas."</center></td>";
+												$cek = 1;
+
+											}if ($value->jam == $value1->jam && $i == 3 && $value1->hari =="Kamis") {
+												echo "<td><center>".$value1->tingkat." ".$value1->nama_jurusan." ".$value1->nama_urutan_kelas."</center></td>";
+												$cek = 1;
+
+											}if ($value->jam == $value1->jam && $i == 4 && $value1->hari =="Jum'at") {
+												echo "<td><center>".$value1->tingkat." ".$value1->nama_jurusan." ".$value1->nama_urutan_kelas."</center></td>";
+												$cek = 1;
+
+											}if ($value->jam == $value1->jam && $i == 5 && $value1->hari =="Sabtu") {
+												echo "<td><center>".$value1->tingkat." ".$value1->nama_jurusan." ".$value1->nama_urutan_kelas."</center></td>";
+												$cek = 1;
 
 											}
 										}
-										if (!empty($detail_jadwal[$i]->jam)) { /*jika kosong menampilkan warna*/
-											if ($value->jam == $detail_jadwal[$i]->jam) { /*jika ada jadwal menampilkan tingkat jurusan dan urutan*/
-												echo "<td>"."<center>".$detail_jadwal[$i]->tingkat." ".$detail_jadwal[$i]->nama_jurusan." ".$detail_jadwal[$i]->nama_urutan_kelas."</br>"."<i class='fa fa-edit'><i></td>"."</center>";
-											}else{
-												echo "<td style='background-color: #228B22'></td>";
-											}
-										}else
-												echo "<td style='background-color: #228B22'></td>";
+										if ($cek == 0) {
+											echo "<td><center></center></td>";
+										}
+																				
 									}
 								}
 								echo "</tr>";

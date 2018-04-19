@@ -186,15 +186,16 @@
 @endsection
 @yield('css')
 @section('js')
-<script type="text/javascript">
-$('#example2').DataTable({
-  "ordering": false
-});
-</script>
-
 <script>
   $(function () {
-    $('.select2').select2()
-  });
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    })
+  })
 </script>
 @endsection

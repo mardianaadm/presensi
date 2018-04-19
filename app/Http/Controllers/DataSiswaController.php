@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\DataSiswa;
+use App\TahunAjaran;
 
 class DataSiswaController extends Controller
 {
@@ -15,9 +16,13 @@ class DataSiswaController extends Controller
      */
     public function index()
     {
-        $data_siswa = DataSiswa::all();
+        $tahun_ajaran = TahunAjaran::all();                    
+        $data_siswa = DataSiswa::query()
+            ->join('tahun_ajaran','data_siswa.id_tahun_ajaran','=','tahun_ajaran.id_tahun_ajaran')
+                ->get();
         return view('data_siswa/data_siswa')
-        ->with('data_siswa', $data_siswa);
+        ->with('data_siswa', $data_siswa)
+        ->with('tahun_ajaran', $tahun_ajaran);
     }
 
     /**
@@ -42,6 +47,7 @@ class DataSiswaController extends Controller
         $siswa->nama_siswa = $request->nama_siswa;
         $siswa->NISN = $request->NISN;
         $siswa->NIS = $request->NIS;
+        $siswa->id_tahun_ajaran = $request->id_tahun_ajaran;
         $siswa->status_siswa = $request->status_siswa;
         $siswa->save();
         return redirect('data_siswa');
