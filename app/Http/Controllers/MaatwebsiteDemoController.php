@@ -3,19 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use Input;
+use Excel;
 
-
-class PresensiSiswaController extends Controller
+class MaatwebsiteDemoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function importExport()
+    {
+        return view('importExport');
+    }
+    public function downloadExcel($type)
+    {
+        $data = Item::get()->toArray();
+        return Excel::create('itsolutionstuff_example', function($excel) use ($data) {
+            $excel->sheet('mySheet', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
+    }
+
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -36,7 +51,7 @@ class PresensiSiswaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -47,7 +62,7 @@ class PresensiSiswaController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

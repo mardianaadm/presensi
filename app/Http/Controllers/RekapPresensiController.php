@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\User;
 
-
-class PresensiSiswaController extends Controller
+class RekapPresensiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class PresensiSiswaController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -36,7 +36,7 @@ class PresensiSiswaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -47,7 +47,7 @@ class PresensiSiswaController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

@@ -29,6 +29,7 @@
 						</thead>
 						<tbody>
 						<?php 
+							
 							foreach ($data_sesi as $value) {
 								echo "<tr>";
 								echo "<td>".$value->jam."</td>"; /*menampilkan ist jam*/

@@ -16,6 +16,13 @@
 		            	{{ csrf_field() }}
 	              		<div class="box-body">
 		                		<div class="form-group">
+		                  			<label for="inputNama" class="col-sm-2 control-label">NISN</label>
+			                  		<div class="col-sm-4">
+			                    		<input type="text" name="nama_user" class="form-control" id="inputNama" placeholder="Nama">
+			                  		</div>
+		                		</div>
+
+		                		<div class="form-group">
 		                  			<label for="inputNama" class="col-sm-2 control-label">Nama</label>
 			                  		<div class="col-sm-4">
 			                    		<input type="text" name="nama_user" class="form-control" id="inputNama" placeholder="Nama">
@@ -23,42 +30,28 @@
 		                		</div>
 
 		            			<div class="form-group">
-		                			<label for="tingkat" class="col-md-2 control-label">Sesi</label>
-		                      			<div class="col-md-4">
-					                        <label class="col-xs-12">
-					                  			<div class="radio">
-					                    		<label>
-					                      			<input type="radio" name="jk_user" id="optionsAktif" value="Laki - Laki">1 Sesi
-					                    		</label>
-					                    		<label>
-					                      			<input type="radio" name="jk_user" id="optionsTdkAktif" value="Perempuan">2 Sesi
-					                    		</label>
-					                  		</div>
-					                  	</label>
-					                </div>
-		            			</div>
+	                			<label for="tingkat" class="col-md-2 control-label">Keterangan</label>
+	                      			<div class="col-md-4">
+				                        <label class="col-xs-12">
+				                  			<div class="radio">
+				                    		<label>
+				                      			<input type="radio" name="keterangan" id="hadir" value="Hadir" checked>Hadir
+				                    		</label>
+				                    		<label>
+				                      			<input type="radio" name="keterangan" id="sakit" value="Sakit">Sakit
+				                    		</label>
+				                    		<label>
+				                      			<input type="radio" name="keterangan" id="izin" value="Izin">Izin
+				                    		</label>
+				                    		<label>
+				                      			<input type="radio" name="keterangan" id="alpha" value="Alpha">Alpha
+				                    		</label>
+				                  			</div>
+				                  		</label>
+				                	</div>
+	            				</div>
 
-		            			<div class="form-group">
-		                 			<label for="inputAlamat" class="col-sm-2 control-label"></label>
-		                  			<div class="col-sm-4">
-		                    			<input type="text" name="alamat_user" class="form-control" id="inputAlamat" placeholder="Sesi">
-		                  			</div>
-		                		</div>
-
-		                		<div class="form-group">
-				                    <label for="nama_jurusan" class="col-md-2 control-label">Kelas</label>
-				                      <div class="col-md-4">
-				                        <label>
-				                          <select id="nama_jurusan" type="nama_jurusan" class="form-control" name="nama_jurusan" required>
-				                            <option>---</option>
-				                              <option value=""></option>
-				                          </select>
-				                        </label>
-				                      </div>
-				                  </div>
-				        </div>
-		            </form>
-	            </div>
+	                	</div>
 	        		<!--submit-->
 	        		<div class="box-footer">
 		                <div class="col-md-4" style="margin-left: -1%"></div>

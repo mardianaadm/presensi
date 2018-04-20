@@ -15,7 +15,7 @@
               {{ csrf_field() }}
               <div class="form-horizontal">
                   <div class="form-group">
-                    <label for="tingkat" class="col-md-2 control-label">Tingkat</label>
+                    <label for="tingkat" class="col-md-4 control-label">Tingkat</label>
                       <div class="col-md-4">
                         <label class="col-xs-12">
                           <div class="radio">
@@ -31,11 +31,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="nama_jurusan" class="col-md-2 control-label">Jurusan</label>
+                    <label for="nama_jurusan" class="col-md-4 control-label">Jurusan</label>
                       <div class="col-md-6">
                         <label class="col-xs-4">
                           <select id="nama_jurusan" type="nama_jurusan" class="form-control" name="nama_jurusan" required>
-                            <option>---</option>
+                            <option value="" disabled selected=""> <i>Pilih Angkatan</i></option>
                             @foreach($jurusan as $value)
                             @if($value->status_jurusan == 'Aktif') <!--menampilkan data yg aktif dari master kelas-->
                               <option value="{{$value->id_jurusan}}">{{$value->nama_jurusan}}</option>
@@ -47,7 +47,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="nama_urutan_kelas" class="col-md-2 control-label">Urutan Kelas</label>
+                    <label for="nama_urutan_kelas" class="col-md-4 control-label">Urutan Kelas</label>
                       <div class="col-md-6">
                         <label class="col-xs-4">
                           <select id="nama_urutan_kelas" type="nama_urutan_kelas" class="form-control" name="nama_urutan_kelas" required>
@@ -64,7 +64,7 @@
               </div>
 
               <div class="box-footer">
-                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
                 <button type="submit" class="btn btn-success">Simpan</button>
               </div>
               </form>

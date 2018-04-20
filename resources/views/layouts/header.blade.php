@@ -57,21 +57,21 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{asset('images/logo.jpg')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">SMAN 3 MAGETAN</span>
+              <span class="hidden-xs">{{ ucfirst(\Illuminate\Support\Facades\Auth::user()->nama_user) }}</span>
             </a>
             <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="{{asset('images/logo.jpg')}}" class="img-circle" alt="User Image">
-                <p>SMAN 3 MAGETAN</p>
-              </li>
 
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="center">
-                  <a href="{{ route('logout') }}" class="btn btn-success btn-normal" 
+                <div class="pull-right">
+                  <a href="{{ route('logout') }}" class="btn btn-flat btn-normal" 
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                </div>
+              </li>
+              <li class="user-footer">
+                <div class="pull-right">
+                  <a href="" class="btn btn-flat btn-normal">Ubah Password</a>
                 </div>
               </li>
             </ul>

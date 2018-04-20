@@ -106,4 +106,13 @@ class DataSiswaController extends Controller
     {
         //
     }
+
+    public function nonaktif(Request $request)
+    {
+        $siswa = DataSiswa::where('id_tahun_ajaran', $request->masa_tahun_ajaran);
+        $siswa->status_siswa = "Tidak Aktif";
+        $siswa->save();
+        Alert::success('Data Berhasil di Non Aktif');
+        return Redirect::to('data_siswa');
+    }
 }

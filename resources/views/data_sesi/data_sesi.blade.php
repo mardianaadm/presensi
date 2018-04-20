@@ -124,7 +124,7 @@
 @section('js')
 <script>
   $(function () {
-    $('#example2').DataTable({
+    $('#example1').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,

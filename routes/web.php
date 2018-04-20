@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Route::post('datasiswanonaktif', 'DataSiswaController@nonaktif');
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/admin', 'HomeController@admin');
 Route::get('/dashboard', 'HomeController@dashboard');
@@ -36,4 +37,6 @@ Route::resource('data_guru', 'DataGuruController');
 Route::resource('jadwal', 'JadwalController');
 Route::resource('data_sesi', 'DataSesiController');
 Route::resource('presensi_siswa', 'PresensiSiswaController');
+Route::resource('presensi', 'PresensiController');
+Route::resource('rekap_presensi', 'RekapPresensiController');
 

@@ -81,9 +81,9 @@
 							                     <div class="box-body">
 							                        <!--POP UP ISI UNGGAH FILE-->
 							                        <div class="alert alert-danger alert-dismissible">
-										                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+										                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
 										                <h4><i class="icon fa fa-ban"></i> Pengumuman!</h4>
-										                Silahkan unduh template sebelum unggah file agar sesuai dengan format penulisan yang benar.
+										                Silahkan unduh template sebelum unggah file agar sesuai dengan format penulisan yang benar. Pastikan nama file yang diunggah tidak ada spasi.
 										            </div>
 							                        <!--END POP UP ISI UNGGAH FILE-->
 							                     </div>
@@ -139,6 +139,7 @@
 				                  		</label>
 				                	</div>
 	            			</div>
+	            		</div>
 	            			<!--submit-->
 	        		<div class="box-footer">
 		                <div class="col-md-2"></div>
@@ -172,7 +173,7 @@
 				                  <h4 class="modal-title">Non-Aktif Siswa</h4>
 				               </div>
 				               <div class="modal-body">
-				                  <form class="form-horizontal" action="{{ route('tahun_ajaran.store') }}" method="post">
+				                  <form class="form-horizontal" method="post">
 				                     {{ csrf_field() }}
 				                     <div class="box-body">
 				                        <!--POP UP ISI UNDUH TEMPLATE-->
@@ -180,7 +181,7 @@
 						                    <label for="nama_tahun_ajaran" class="col-md-4 control-label">Tahun Ajaran</label>
 						                      <div class="col-md-6">
 						                        <label class="col-xs-8">
-						                          <select id="nama_tahun_ajaran" class="form-control" name="nama_tahun_ajaran" required>
+						                          <select id="nama_tahun_ajaran" class="form-control" name="masa_tahun_ajaran" required>
 						                            <option>---</option>
 						                            @foreach($tahun_ajaran as $value)
 						                              <option value="{{$value->id_tahun_ajaran}}">{{$value->masa_tahun_ajaran}}</option>
