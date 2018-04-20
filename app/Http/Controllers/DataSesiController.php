@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\DataSesi;
+use Alert;
 
 class DataSesiController extends Controller
 {
@@ -41,6 +42,7 @@ class DataSesiController extends Controller
         $data_sesi->nama_sesi = $request->nama_sesi;
         $data_sesi->jam = $request->jam;
         $data_sesi->save();
+        Alert::success('Data Berhasil Ditambahkan');
         return Redirect::to('data_sesi');
     }
 
@@ -79,6 +81,7 @@ class DataSesiController extends Controller
         $data_sesi->nama_sesi = $request->nama_sesi;
         $data_sesi->jam = $request->jam;
         $data_sesi->save();
+        Alert::success('Data Berhasil Diubah');
         return Redirect::to('data_sesi');
     }
 

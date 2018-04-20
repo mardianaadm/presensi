@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Jurusan;
 use App\UrutanKelas;
+use Alert;
 
 class MasterKelasController extends Controller
 {
@@ -45,6 +46,7 @@ class MasterKelasController extends Controller
         $jurusan->nama_jurusan = $request->nama_jurusan;
         $jurusan->status_jurusan = $request->status_jurusan;
         $jurusan->save();
+        Alert::success('Data Berhasil Ditambahkan');
         return Redirect::to('master_kelas');
     }
 
@@ -83,6 +85,7 @@ class MasterKelasController extends Controller
         $jurusan->nama_jurusan = $request->nama_jurusan;
         $jurusan->status_jurusan = $request->status_jurusan;
         $jurusan->save();
+        Alert::success('Data Berhasil Diubah');
         return Redirect::to('master_kelas');
     }
 

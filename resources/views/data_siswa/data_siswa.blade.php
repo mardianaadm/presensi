@@ -32,7 +32,7 @@
 							                  <h4 class="modal-title">PETUNJUK PENGISIAN</h4>
 							               </div>
 							               <div class="modal-body">
-							                  <form class="form-horizontal" action="{{ route('tahun_ajaran.store') }}" method="post">
+							                  <form class="form-horizontal">
 							                     {{ csrf_field() }}
 							                     <div class="box-body">
 							                        <!--POP UP ISI UNDUH TEMPLATE-->
@@ -43,7 +43,7 @@
 							                        <ul>
 							                        	<li><span class="badge">2</span> Pada template tidak menampilkan status karena setiap data yang tambah pasti aktif.</li>
 							                        </ul>
-							                        <!--END POP UP ISI TAMBAH TAHUN AJARAN-->
+							                        <!--END POP UP ISI UNDUH TEMPLATE-->
 							                     </div>
 							                     <div class="modal-footer">
 							                        <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Tutup</button>
@@ -55,6 +55,7 @@
 							         </div>
 							         <!-- /.modal-content -->
 							      </div>
+							      <!-- END UNDUH TEMPLATE -->
 	                		</div>
 	                		<!--END NISN -->
 
@@ -63,7 +64,7 @@
 	                  			<div class="col-sm-4">
 	                    			<input type="text" name="NIS" class="form-control" id="inputNIS" placeholder="NIS">
 	                  			</div></br>
-	                  			<!-- UNDUH TEMPLATE -->
+	                  			<!-- UNGGAH FILE -->
 	                  				<div class="col-sm-4 pull-right">
 	                  				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-unggahfile">Unggah File</button></div>
 	                  				<div class="modal fade" id="modal-unggahfile">
@@ -75,16 +76,16 @@
 							                  <h4 class="modal-title">PETUNJUK MENGUNGGAH FILE</h4>
 							               </div>
 							               <div class="modal-body">
-							                  <form class="form-horizontal" action="{{ route('tahun_ajaran.store') }}" method="post">
+							                  <form class="form-horizontal">
 							                     {{ csrf_field() }}
 							                     <div class="box-body">
-							                        <!--POP UP ISI UNDUH TEMPLATE-->
+							                        <!--POP UP ISI UNGGAH FILE-->
 							                        <div class="alert alert-danger alert-dismissible">
 										                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 										                <h4><i class="icon fa fa-ban"></i> Pengumuman!</h4>
 										                Silahkan unduh template sebelum unggah file agar sesuai dengan format penulisan yang benar.
 										            </div>
-							                        <!--END POP UP ISI TAMBAH TAHUN AJARAN-->
+							                        <!--END POP UP ISI UNGGAH FILE-->
 							                     </div>
 							                     <div class="modal-footer">
 							                        <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Tutup</button>
@@ -95,8 +96,10 @@
 							            </div>
 							         </div>
 							         <!-- /.modal-content -->
-							      </div>
-	                		</div>
+							      	</div>
+							      	<!-- END UNGGAH FILE -->
+		                		</div>
+		                		<!-- END NIS -->
 
 	                		<div class="form-group">
 	                  			<label for="inputNama" class="col-sm-2 control-label">Nama</label>
@@ -112,7 +115,7 @@
 			                          <select id="nama_tahun_ajaran" class="form-control" name="id_tahun_ajaran" value="{{$tahun_ajaran[0]->id_tahun_ajaran}}" required>
 			                            <option>---</option>
 			                            @foreach($tahun_ajaran as $value)
-			                            @if($value->status_tahun_ajaran == 'Aktif') <!--menampilkan data yg aktif dari master kelas-->
+			                            @if($value->status_tahun_ajaran == 'Aktif') <!--menampilkan data yg aktif dari tahun ajaran-->
 			                            <option value="{{$value->id_tahun_ajaran}}">{{$value->masa_tahun_ajaran}}</option>
 			                              @endif
 			                            @endforeach
@@ -158,36 +161,48 @@
 	              	</div>
 	            <!-- /.box-header -->
 		            <div class="box-body">
-		            	<!--ISI POP UP TAMBAH JURUSAN-->
-	                    <div class="form-group">
-	                      	<div class="form-group">
-		                    <label for="jam" class="col-md-4 control-label">Tahun Ajaran</label>
-		                      <div class="col-md-6">
-		                        <label class="col-xs-8">
-		                          <select id="tahun_ajaran" class="form-control" name="id_tahun_ajaran" required>
-		                            <option>---</option>
-		                            @foreach($tahun_ajaran as $value)
-		                              <option value="{{$value->id_tahun_ajaran}}">{{$value->masa_tahun_ajaran}}</option>
-		                            @endforeach
-		                          </select>
-		                        </label>
-		                      </div>
-		                  	</div>
-	                   	</div>
-	                    <!--END ISI POP UP TAMBAH JURUSAN-->
-	                    </div>
-	                    <div class="modal-footer">
-	                      <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Tutup</button>
-	                      <button type="submit" class="btn btn-success">Simpan</button>
-	                    </div>
-	                  </form>
-	              </div>
-	            </div>
-	            <!-- /.modal-content -->
-	          </div>
-	          <!-- /.modal-dialog -->
-	        </div>
-        <!--END POP UP TAMBAH JURUSAN-->
+		            	<!-- NON-AKTIF SISWA SESUAI TAHUN AJARAN -->
+          				<div class="col-sm-4 pull-right">
+          				<div class="modal fade" id="modal-nonaktif">
+				         <div class="modal-dialog">
+				            <div class="modal-content">
+				               <div class="modal-header">
+				                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				                  <span aria-hidden="true">&times;</span></button>
+				                  <h4 class="modal-title">Non-Aktif Siswa</h4>
+				               </div>
+				               <div class="modal-body">
+				                  <form class="form-horizontal" action="{{ route('tahun_ajaran.store') }}" method="post">
+				                     {{ csrf_field() }}
+				                     <div class="box-body">
+				                        <!--POP UP ISI UNDUH TEMPLATE-->
+				                        <div class="form-group">
+						                    <label for="nama_tahun_ajaran" class="col-md-4 control-label">Tahun Ajaran</label>
+						                      <div class="col-md-6">
+						                        <label class="col-xs-8">
+						                          <select id="nama_tahun_ajaran" class="form-control" name="nama_tahun_ajaran" required>
+						                            <option>---</option>
+						                            @foreach($tahun_ajaran as $value)
+						                              <option value="{{$value->id_tahun_ajaran}}">{{$value->masa_tahun_ajaran}}</option>
+						                            @endforeach
+						                          </select>
+						                        </label>
+						                      </div>
+						                </div>
+				                        <!--END POP UP ISI TAMBAH TAHUN AJARAN-->
+				                     </div>
+				                     <div class="modal-footer">
+				                        <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Tutup</button>
+				                        <button type="submit" class="btn btn-success">Non-Aktif</button>
+				                     </div>
+				                  </form>
+				               </div>
+				            </div>
+				         </div>
+				         <!-- /.modal-content -->
+				      </div>
+	        		</div>
+	        		<!--END NISN -->
 
 		                <table id="example2" class="table table-bordered table-striped">
 		                  <thead>

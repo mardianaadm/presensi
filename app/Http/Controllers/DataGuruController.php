@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\User;
+use Alert;
 
 class DataGuruController extends Controller
 {
@@ -46,6 +47,7 @@ class DataGuruController extends Controller
         $data_guru->level = "Guru";
         $data_guru->status_user = $request->status_user;
         $data_guru->save();
+        Alert::success('Data Berhasil Ditambahkan');
         return redirect('data_guru');
     }
 
@@ -88,6 +90,7 @@ class DataGuruController extends Controller
         $data_guru->level = "Guru";
         $data_guru->status_user = $request->status_user;
         $data_guru->save();
+        Alert::success('Data Berhasil Diubah');
         return redirect('data_guru');
     }
 

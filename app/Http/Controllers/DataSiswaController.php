@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\DataSiswa;
 use App\TahunAjaran;
+use Alert;
 
 class DataSiswaController extends Controller
 {
@@ -50,6 +51,7 @@ class DataSiswaController extends Controller
         $siswa->id_tahun_ajaran = $request->id_tahun_ajaran;
         $siswa->status_siswa = $request->status_siswa;
         $siswa->save();
+        Alert::success('Data Berhasil Ditambahkan');
         return redirect('data_siswa');
     }
 
@@ -90,6 +92,7 @@ class DataSiswaController extends Controller
         $siswa->NIS = $request->NIS;
         $siswa->status_siswa = $request->status_siswa;
         $siswa->save();
+        Alert::success('Data Berhasil Diubah');
         return Redirect::to('data_siswa');
     }
 

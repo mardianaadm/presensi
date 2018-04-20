@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Jurusan;
 use App\UrutanKelas;
 use App\KelasSiswa;
+use Alert;
 use Auth;
 
 class KelasSiswaController extends Controller
@@ -54,6 +55,7 @@ class KelasSiswaController extends Controller
         ->where('id_urutan_kelas', $request->nama_urutan_kelas)
         ->count();
         if ($cek>0) { /*jika lebih dari 0 maka akan kembali ke halaman kelas_siswa*/
+            Alert::success('Data Sudah Ada');
             return redirect('kelas_siswa');
         }else{ /*jika tidak maka menampilkan sesuai yg diinputkan*/
             $kelas = new KelasSiswa;
@@ -62,6 +64,7 @@ class KelasSiswaController extends Controller
             $kelas->id_urutan_kelas = $request->nama_urutan_kelas;
             $kelas->id_user = Auth::user()->id_user;
             $kelas->save();
+            Alert::success('Data Berhasil Ditambahkan');
             return redirect('kelas_siswa');
         }
     }
@@ -103,6 +106,7 @@ class KelasSiswaController extends Controller
         $kelas->id_urutan_kelas = $request->nama_urutan_kelas;
         $kelas->id_user = Auth::user()->id_user;
         $kelas->save();
+        Alert::success('Data Berhasil Diubah');
         return redirect('kelas_siswa');
     }
 

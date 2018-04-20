@@ -10,7 +10,7 @@ use App\DataSesi;
 use App\Jadwal;
 use App\UrutanKelas;
 use App\Jurusan;
-// use App\JadwalMengajar;
+use Alert;
 use Illuminate\Support\Facades\DB;
 
 class JadwalController extends Controller
@@ -77,7 +77,7 @@ class JadwalController extends Controller
         $user = User::all();
         $jurusan = Jurusan::all();
         $urutanKelas = UrutanKelas::all();
-
+        Alert::success('Data Berhasil Ditambahkan');
         return view ('jadwal/detail_jadwal')
         ->with('jadwal', $jadwal)
         ->with('user', $user)
@@ -110,7 +110,6 @@ class JadwalController extends Controller
         $user = User::all();
         $jurusan = Jurusan::all();
         $urutanKelas = UrutanKelas::all();
-
         return view ('jadwal/detail_jadwal')
         ->with('jadwal', $jadwal)
         ->with('user', $user)

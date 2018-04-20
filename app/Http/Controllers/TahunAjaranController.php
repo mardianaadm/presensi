@@ -51,7 +51,7 @@ class TahunAjaranController extends Controller
         $tahun_ajaran->masa_tahun_ajaran = $request->masa_tahun_ajaran;
         $tahun_ajaran->status_tahun_ajaran = $request->status_tahun_ajaran;
         $tahun_ajaran->save();
-        Alert::success('Success Message', 'Data Berhasil Ditambahkan');
+        Alert::success('Data Berhasil Ditambahkan');
         return Redirect::to('tahun_ajaran');
     }
 
@@ -94,7 +94,7 @@ class TahunAjaranController extends Controller
         $tahun_ajaran->masa_tahun_ajaran = $request->masa_tahun_ajaran;
         $tahun_ajaran->status_tahun_ajaran = $request->status_tahun_ajaran;
         $tahun_ajaran->save();
-        Alert::success('Success Message', 'Data Berhasil Ditambahkan');
+        Alert::success('Data Berhasil Diubah');
         return Redirect::to('tahun_ajaran');
     }
 
