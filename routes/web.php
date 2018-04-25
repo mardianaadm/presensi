@@ -26,6 +26,9 @@ Route::get('/kelas_siswa', 'HomeController@kelas_siswa');
 Route::get('/data_guru', 'HomeController@data_guru');
 Route::get('/data_siswa', 'HomeController@data_siswa');
 Route::get('/data_sesi', 'HomeController@data_sesi');
+Route::get('/kelas_siswa/{tingkat}/{jurusan}/{urutan}', 'KelasSiswaController@show') ;
+Route::post('/data_siswa/{tahun_ajaran}', 'DataSiswaController@nonAktif') ;
+
 // Route::get('/tahun_ajaran', 'HomeController@tahun_ajaran');
 
 Route::resource('master_kelas', 'MasterKelasController');
@@ -39,4 +42,7 @@ Route::resource('data_sesi', 'DataSesiController');
 Route::resource('presensi_siswa', 'PresensiSiswaController');
 Route::resource('presensi', 'PresensiController');
 Route::resource('rekap_presensi', 'RekapPresensiController');
+Route::resource('detail_data_siswa', 'DetailDataSiswaController');
+Route::get('downloadExcel', 'MaatwebsiteDemoController@downloadExcel');
+Route::post('importExcel', 'MaatwebsiteDemoController@importExcel');
 

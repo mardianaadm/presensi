@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\PresensiSiswa;
 
 
 class PresensiSiswaController extends Controller
@@ -15,7 +16,8 @@ class PresensiSiswaController extends Controller
      */
     public function index()
     {
-        
+        $presensi_siswa = PresensiSiswa::all();
+        return view('presensi_siswa/presensi_siswa');
     }
 
     /**
@@ -36,7 +38,9 @@ class PresensiSiswaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $presensi_siswa = new PresensiSiswa;
+        $NISN = $request->NISN;
+        $nama_user = $request->nama_user;
     }
 
     /**

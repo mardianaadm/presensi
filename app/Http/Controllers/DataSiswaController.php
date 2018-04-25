@@ -44,13 +44,13 @@ class DataSiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $siswa = new DataSiswa;
-        $siswa->nama_siswa = $request->nama_siswa;
-        $siswa->NISN = $request->NISN;
-        $siswa->NIS = $request->NIS;
-        $siswa->id_tahun_ajaran = $request->id_tahun_ajaran;
-        $siswa->status_siswa = $request->status_siswa;
-        $siswa->save();
+        $data_siswa = new DataSiswa;
+        $data_siswa->nama_siswa = $request->nama_siswa;
+        $data_siswa->NISN = $request->NISN;
+        $data_siswa->NIS = $request->NIS;
+        $data_siswa->id_tahun_ajaran = $request->id_tahun_ajaran;
+        $data_siswa->status_siswa = $request->status_siswa;
+        $data_siswa->save();
         Alert::success('Data Berhasil Ditambahkan');
         return redirect('data_siswa');
     }
@@ -84,17 +84,18 @@ class DataSiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $siswa = DataSiswa::find($id);
-        $siswa->nama_siswa = $request->nama_siswa;
-        $siswa->NISN = $request->NISN;
-        $siswa->NIS = $request->NIS;
-        $siswa->status_siswa = $request->status_siswa;
-        $siswa->save();
+        $data_siswa = DataSiswa::find($id);
+        $data_siswa->nama_siswa = $request->nama_siswa;
+        $data_siswa->NISN = $request->NISN;
+        $data_siswa->NIS = $request->NIS;
+        $data_siswa->status_siswa = $request->status_siswa;
+        $data_siswa->save();
         Alert::success('Data Berhasil Diubah');
         return Redirect::to('data_siswa');
-    }
+
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -107,12 +108,12 @@ class DataSiswaController extends Controller
         //
     }
 
-    public function nonaktif(Request $request)
+    public function nonAktif(Request $request)
     {
-        $siswa = DataSiswa::where('id_tahun_ajaran', $request->masa_tahun_ajaran);
-        $siswa->status_siswa = "Tidak Aktif";
-        $siswa->save();
-        Alert::success('Data Berhasil di Non Aktif');
+        $data_siswa = DataSiswa::where('id_tahun_ajaran', $request->masa_tahun_ajaran);
+        $data_siswa->status_siswa = "Tidak Aktif";
+        $data_siswa->save();
+        Alert::success('Data Berhasil Diubah');
         return Redirect::to('data_siswa');
     }
 }

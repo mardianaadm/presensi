@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Input;
+use Illuminate\Support\Facades\Input;
+use App\DataSiswa;
 use Excel;
 
 class MaatwebsiteDemoController extends Controller
@@ -13,19 +14,28 @@ class MaatwebsiteDemoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function importExport()
+    public function importExcel()
     {
-        return view('importExport');
+        if(Input::hasFile('importExcel')){
+            $file = Input::file('importExcel')->getRealPath();
+            $data = Excel::load($file)->get();
+            foreach ($data as $value) {
+                DataSiswa::updateOrCreate(['nisn'=>$value->nisn], $value->except('nisn')->toArray());
+            }
+
+        }
     }
-    public function downloadExcel($type)
+
+    public function downloadExcel()
     {
-        $data = Item::get()->toArray();
-        return Excel::create('itsolutionstuff_example', function($excel) use ($data) {
-            $excel->sheet('mySheet', function($sheet) use ($data)
-            {
-                $sheet->fromArray($data);
+        Excel::create('TemplateDataSiswa', function($excel) {
+            $excel->sheet('Sheet1', function($sheet){
+                $sheet->row(1, array('NISN', 'NIS', 'Nama', 'Tahun Ajaran'));
+                $sheet->row(2, array('1234567890', '1234', 'Abcd'));
+                $sheet->row(3, array('6483254832', '7354', 'Efgh'));
+                $sheet->row(4, array('7634753294', '6473', 'Ijkl'));
             });
-        })->download($type);
+       })->download('xlsx');
     }
 
     public function index()

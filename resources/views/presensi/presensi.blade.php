@@ -28,7 +28,7 @@
 				                      <div class="col-md-4">
 				                        <label>
 				                          <select id="nama_kelas" class="form-control" name="id_kelas" required>
-				                            <option>---</option>
+				                            <option value="">---</option>
 				                            @foreach($kelas_siswa as $value)
 				                              <option value="{{$value->id_kelas_siswa}}">{{$value->tingkat}} {{$value->nama_jurusan}} {{$value->nama_urutan_kelas}}</option>
 				                            @endforeach
@@ -37,25 +37,12 @@
 				                      </div>
 				                </div>
 
-		            			<div class="form-group">
-				                    <label for="nama_sesi" class="col-md-2 control-label">Sesi</label>
-				                      <div class="col-md-4">
-				                        <label>
-				                          <select id="nama_sesi" class="form-control" name="id_sesi" required>
-				                            <option>---</option>
-				                            @foreach($data_sesi as $value)
-				                              <option value="{{$value->id_sesi}}">{{$value->jam}}</option>
-				                            @endforeach
-				                          </select>
-				                        </label>
-				                      </div>
-				                </div>
 				        </div>
 	            </div>
 	        		<!--submit-->
 	        		<div class="box-footer">
 		                <div class="col-md-4" style="margin-left: -1%"></div>
-		                <a href="{{ route('presensi_siswa.store') }}" class="btn btn-success">Simpan</a>
+		                <input type="submit" name="" class="btn btn-success" value="Simpan">
 	              	</div>
 	        		</form>
 	          	</div>     

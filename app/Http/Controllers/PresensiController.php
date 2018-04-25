@@ -53,7 +53,6 @@ class PresensiController extends Controller
         $presensi->tanggal = date('Y-m-d');
         $presensi->jam = date('H:i:s');
         $presensi->id_kelas = $request->id_kelas;
-        $presensi->id_sesi = $request->id_sesi;
         $presensi->id_user = Auth::user()->id_user;
         $presensi->save();
         return redirect('presensi_siswa');

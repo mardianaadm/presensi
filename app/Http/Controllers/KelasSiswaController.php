@@ -7,8 +7,12 @@ use Illuminate\Support\Facades\Redirect;
 use App\Jurusan;
 use App\UrutanKelas;
 use App\KelasSiswa;
+use App\DataSiswa;
+use App\DataKelasSiswa;
+use App\TahunAjaran;
 use Alert;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class KelasSiswaController extends Controller
 {
@@ -19,6 +23,7 @@ class KelasSiswaController extends Controller
      */
     public function index()
     {
+        $data_siswa = DataSiswa::all();
         $jurusan = Jurusan::all();
         $urutan_kelas = UrutanKelas::all();
         $KelasSiswa = KelasSiswa::
@@ -75,9 +80,29 @@ class KelasSiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($tingkat, $jurusan, $urutan)
     {
-        //
+        $tahun_ajaran = TahunAjaran::all();
+        $kelas_siswa = KelasSiswa::all();
+        $data_siswa = DB::table('data_siswa')
+        ->whereNotIn('id_siswa', function($q){
+            $q->select('id_siswa')->from('data_siswa');
+        })->get();
+        // ->rightJoin('data_siswa', 'data_kelas_siswa.id_siswa', '=', 'data_siswa.id_siswa')
+        // ->get();
+        $data_kelas_siswa = DataKelasSiswa::query()
+        ->join('kelas_siswa', 'kelas_siswa.id_kelas_siswa', '=', 'data_kelas_siswa.id_kelas_siswa')
+        ->join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
+        ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
+        ->join('data_siswa','data_siswa.id_siswa','=','data_kelas_siswa.id_siswa')
+        ->where('kelas_siswa.tingkat', $tingkat)
+        ->where('jurusan.nama_jurusan', $jurusan)
+        ->where('urutan_kelas.nama_urutan_kelas', $urutan)
+        ->get();
+        return view('kelas_siswa/detail_data_siswa')
+        ->with('data_siswa', $data_siswa)
+        ->with('data_kelas_siswa', $data_kelas_siswa)
+        ->with('tahun_ajaran', $tahun_ajaran);
     }
 
     /**

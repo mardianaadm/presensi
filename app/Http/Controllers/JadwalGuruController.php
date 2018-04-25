@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Redirect;
 use App\User;
 use App\TahunAjaran;
@@ -13,7 +14,7 @@ use App\Jurusan;
 use Alert;
 use Illuminate\Support\Facades\DB;
 
-class JadwalController extends Controller
+class JadwalGuruController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -47,55 +48,6 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-         $jam = $request->input('jam');
-         $hari = $request->input('hari');
-         $jurusan = $request->input('jurusan');
-         $tingkat = $request->input('tingkat');
-         $urutan_kelas = $request->input('urutan_kelas');
-         $id = $request->input('idguru');
-         $id_newKelas = DB::table('kelas_siswa')->insertGetId(
-            ['tingkat' => $tingkat, 'id_jurusan' => $jurusan, 'id_urutan_kelas' => $urutan_kelas, 'id_user' => $id]
-        );
-         $id_newJadwalMengajar = DB::table('jadwal_mengajar')->insertGetId(
-            ['hari' => $hari, 'id_tahun_ajaran' => 1, 'id_sesi' => $jam]
-        );
-         DB::table('jadwal_mengajar_kelas')->insert(
-            ['id_jadwal_mengajar'=>$id_newJadwalMengajar,'id_kelas_siswa'=>$id_newKelas]
-         );
-
-         $detail_jadwal =  \DB::select("SELECT data_sesi.id_sesi as sesi, nama_user, tingkat, nama_jurusan, nama_urutan_kelas, hari, jam, nama_semester, masa_tahun_ajaran, jadwal_mengajar.id_jadwal_mengajar FROM users
-            JOIN kelas_siswa ON users.id_user = kelas_siswa.id_user
-            JOIN jurusan ON kelas_siswa.id_jurusan = jurusan.id_jurusan
-            JOIN urutan_kelas ON kelas_siswa.id_urutan_kelas = urutan_kelas.id_urutan_kelas
-            JOIN jadwal_mengajar_kelas on kelas_siswa.id_kelas_siswa = jadwal_mengajar_kelas.id_kelas_siswa
-            JOIN jadwal_mengajar ON jadwal_mengajar_kelas.id_jadwal_mengajar = jadwal_mengajar.id_jadwal_mengajar
-            JOIN data_sesi ON jadwal_mengajar.id_sesi = data_sesi.id_sesi
-            JOIN tahun_ajaran ON jadwal_mengajar.id_tahun_ajaran = tahun_ajaran.id_tahun_ajaran
-            WHERE users.id_user = $id AND tahun_ajaran.status_tahun_ajaran = 'Aktif'");
-        $data_sesi = DataSesi::all();
-        $jadwal = Jadwal::all();
-        $user = User::all();
-        $jurusan = Jurusan::all();
-        $urutanKelas = UrutanKelas::all();
-        Alert::success('Data Berhasil Ditambahkan');
-        return view ('jadwal/detail_jadwal')
-        ->with('jadwal', $jadwal)
-        ->with('user', $user)
-        ->with('jurusan', $jurusan)
-        ->with('urutanKelas', $urutanKelas)
-        ->with('detail_jadwal', $detail_jadwal)
-        ->with('id_user', $id)
-        ->with('data_sesi', $data_sesi);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
         $detail_jadwal =  \DB::select("SELECT data_sesi.id_sesi as sesi, nama_user, tingkat, nama_jurusan, nama_urutan_kelas, hari, jam, nama_semester, masa_tahun_ajaran, jadwal_mengajar.id_jadwal_mengajar FROM users
             JOIN kelas_siswa ON users.id_user = kelas_siswa.id_user
             JOIN jurusan ON kelas_siswa.id_jurusan = jurusan.id_jurusan
@@ -120,6 +72,17 @@ class JadwalController extends Controller
         ->with('id_user', $id)
         ->with('data_sesi', $data_sesi)
         ->with('tahun_ajaran', $tahun_ajaran);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**

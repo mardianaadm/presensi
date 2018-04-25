@@ -30,6 +30,20 @@
 
         <li class="">
           <a href="{{url('rekap_presensi')}}">
+            <i class="fa fa-files-o"></i><span>Rekap Presensi</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="">
+          <a href="{{url('jadwal_guru')}}">
+            <i class="fa fa-files-o"></i><span>Jadwal Mengajar</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="">
+          <a href="{{url('jadwal_guru')}}">
             <i class="fa fa-files-o"></i><span>Data Kelas Siswa</span>
             </span>
           </a>

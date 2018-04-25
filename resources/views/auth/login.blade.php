@@ -74,8 +74,9 @@
 														<input type="submit" class="btn btn-primary btn-block" value="Submit">
 													</div>
 												</div>
-											</form>	
+											</form>
 										</div>
+										
 									</div>
 								</div>
 							</div>

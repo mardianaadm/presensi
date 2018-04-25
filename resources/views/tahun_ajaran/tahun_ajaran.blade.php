@@ -123,7 +123,7 @@
                               <div class="col-md-4">
                                  <label>
                                     <select id="nama_semester" type="radio" class="form-control" name="nama_semester" required>
-                                       <option>---</option>
+                                       <option value="" disabled selected=""> <i>Pilih Semester</i></option>
                                        <option>Ganjil</option>
                                        <option>Genap</option>
                                     </select>
