@@ -74,6 +74,27 @@ class KelasSiswaController extends Controller
         }
     }
 
+    public function store_siswa(Request $request)
+    {
+        /*cek nama dan urutan ada di DB*/
+        $cek = DataSiswa::where('NISN', $request->NISN)
+        ->orWhere('NIS', $request->NIS)
+        ->count();
+        if ($cek>0) { /*jika lebih dari 0 maka akan kembali ke halaman kelas_siswa*/
+            Alert::success('Data Sudah Ada');
+            return redirect('kelas_siswa');
+        }else{ /*jika tidak maka menampilkan sesuai yg diinputkan*/
+            $data_kelas_siswa = new DataKelasSiswa;
+            $data_kelas_siswa->tingkat = $request->tingkat;
+            $data_kelas_siswa->id_jurusan = $request->nama_jurusan;
+            $data_kelas_siswa->id_urutan_kelas = $request->nama_urutan_kelas;
+            $data_kelas_siswa->id_user = Auth::user()->id_user;
+            $data_kelas_siswa->save();
+            Alert::success('Data Berhasil Ditambahkan');
+            return redirect('kelas_siswa');
+        }
+    }
+
     /**
      * Display the specified resource.
      *

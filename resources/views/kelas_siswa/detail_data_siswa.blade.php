@@ -79,6 +79,13 @@
                                   <form class="form-horizontal" action="{{ url('importExcel') }}" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="box-body">
+                                      
+                                      <center>@foreach($tahun_ajaran as $value)
+                                      @if($value->status_tahun_ajaran=='Aktif')<h3>
+                                      <?php echo $value->masa_tahun_ajaran;
+                                      ?></h3>
+                                      @endif
+                                      @endforeach</center></br>
                                       <!--POP UP ISI UNGGAH FILE-->
                                       <div class="alert alert-danger alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
@@ -113,14 +120,11 @@
                           <label for="nama_jurusan" class="col-md-2 control-label">Tahun Ajaran</label>
                           <div class="col-md-6">
                             <label class="col-xs-8">
-                              <select id="nama_tahun_ajaran" class="form-control" name="id_tahun_ajaran" value="{{$tahun_ajaran[0]->id_tahun_ajaran}}" required>
-                                <option value="" disabled selected=""> <i>Pilih Tahun Ajaran</i></option>
                                 @foreach($tahun_ajaran as $value)
                                 @if($value->status_tahun_ajaran == 'Aktif') <!--menampilkan data yg aktif dari tahun ajaran-->
-                                <option value="{{$value->id_tahun_ajaran}}">{{$value->masa_tahun_ajaran}}</option>
+                                <input type="text" name="tahun_ajaran" value="{{$value->masa_tahun_ajaran}}" disabled="tahun_ajaran">
                                 @endif
                                 @endforeach
-                              </select>
                             </label>
                           </div>
                         </div>
@@ -160,54 +164,6 @@
                   <div class="box box-success">
                     <div class="box-header">
                       <h3 class="box-title">Daftar Data Siswa</h3></br></br>
-                      <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-nonaktif">Non-Aktif Siswa Berdasarkan Tahun Ajaran</button>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                      <!-- NON-AKTIF SISWA SESUAI TAHUN AJARAN -->
-                      <div class="col-sm-4 pull-right">
-                        <div class="modal fade" id="modal-nonaktif">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span></button>
-                                  <h4 class="modal-title">Non-Aktif Siswa</h4>
-                                </div>
-                                <div class="modal-body">
-                                  <form class="form-horizontal" action="{{ url('data_siswa', '$value->masa_tahun_ajaran') }}" method="post">
-                                    {{ csrf_field() }}
-                                    {{ method_field('PATCH') }}
-                                    <div class="box-body">
-                                      <!--POP UP ISI UNDUH TEMPLATE-->
-                                      <div class="form-group">
-                                        <label for="nama_tahun_ajaran" class="col-md-4 control-label">Tahun Ajaran</label>
-                                        <div class="col-md-6">
-                                          <label class="col-xs-10">
-                                            <select id="nama_tahun_ajaran" class="form-control" name="masa_tahun_ajaran" required>
-                                              <option value="" disabled selected=""> <i>Pilih Tahun Ajaran</i></option>
-                                              @foreach($tahun_ajaran as $value)
-                                              <option value="{{$value->id_tahun_ajaran}}">{{$value->masa_tahun_ajaran}}</option>
-                                              @endforeach
-                                            </select>
-                                          </label>
-                                        </div>
-                                      </div>
-                                      <!--END POP UP ISI TAMBAH TAHUN AJARAN-->
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Tutup</button>
-                                      <button type="submit" class="btn btn-success">Non-Aktif</button>
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- /.modal-content -->
-                          </div>
-                        </div>
-                        <!--END NISN -->
-
                         <table id="example2" class="table table-bordered table-striped">
                           <thead>
                             <tr>

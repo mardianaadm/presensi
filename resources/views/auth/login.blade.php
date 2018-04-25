@@ -76,7 +76,7 @@
 												</div>
 											</form>
 										</div>
-										
+										<h5 style="text-align: center;"><a href="" data-toggle="modal" data-target="#modal-default">Lupa Password</a></h5>
 									</div>
 								</div>
 							</div>

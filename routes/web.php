@@ -27,7 +27,7 @@ Route::get('/data_guru', 'HomeController@data_guru');
 Route::get('/data_siswa', 'HomeController@data_siswa');
 Route::get('/data_sesi', 'HomeController@data_sesi');
 Route::get('/kelas_siswa/{tingkat}/{jurusan}/{urutan}', 'KelasSiswaController@show') ;
-Route::post('/data_siswa/{tahun_ajaran}', 'DataSiswaController@nonAktif') ;
+Route::get('/data_siswa_nonaktif', 'DataSiswaController@show') ;
 
 // Route::get('/tahun_ajaran', 'HomeController@tahun_ajaran');
 

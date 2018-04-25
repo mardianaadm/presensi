@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\DataSiswa;
 use App\TahunAjaran;
+use App\KelasSiswa;
 use Alert;
 
 class DataSiswaController extends Controller
@@ -21,8 +22,13 @@ class DataSiswaController extends Controller
         $data_siswa = DataSiswa::query()
             ->join('tahun_ajaran','data_siswa.id_tahun_ajaran','=','tahun_ajaran.id_tahun_ajaran')
                 ->get();
+        $kelas_siswa = KelasSiswa::
+        join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
+            ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
+            ->get();
         return view('data_siswa/data_siswa')
         ->with('data_siswa', $data_siswa)
+        ->with('kelas_siswa', $kelas_siswa)
         ->with('tahun_ajaran', $tahun_ajaran);
     }
 
@@ -61,9 +67,14 @@ class DataSiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $kelas_siswa = KelasSiswa::
+        join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
+            ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
+            ->get();
+        return view('data_siswa/non-aktif')
+        ->with('kelas_siswa', $kelas_siswa);
     }
 
     /**

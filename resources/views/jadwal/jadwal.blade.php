@@ -5,8 +5,8 @@
 	@foreach($tahun_ajaran as $value)
 	@if($value->status_tahun_ajaran=='Aktif')
     <h2><center>Jadwal Mengajar</br>Mapel Teknologi Informasi dan Komunikasi</br>Tahun Ajaran <?php echo $value->masa_tahun_ajaran?></center></h2>
-    @endif
-    @endforeach
+  @endif
+  @endforeach
 </div></br>
 
 <section class="content">
@@ -27,12 +27,14 @@
 		                </tr>
 	                </thead>
 	                @foreach($data_guru as $value)
+                  @if($value->status_user == 'Aktif')
 	                <tr>
-	                    <td>{{ $value->nama_user }}</td>
+	                    <td><?php echo $value->nama_user?></td>
 	                    <td>{{ $value->NIP }}</td>
 	                    <td> <a href="{{ route('jadwal.show', $value->id_user ) }}" class="btn btn-success">Detail Jadwal Mengajar</a>
 	                    </td>
 	                </tr>
+                  @endif
 	                @endforeach
               	</table>
             </div> <!-- /.box-body -->            
