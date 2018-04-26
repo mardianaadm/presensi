@@ -76,7 +76,9 @@
 												</div>
 											</form>
 										</div>
-										<h5 style="text-align: center;"><a href="" data-toggle="modal" data-target="#modal-default">Lupa Password</a></h5>
+										<h5 style="text-align: center;">
+											<a data-toggle="modal" data-target="#modal-default">Jika lupa password hubungi Admin</a>
+										</h5>
 									</div>
 								</div>
 							</div>

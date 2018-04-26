@@ -54,7 +54,7 @@ class DataSiswaController extends Controller
         $data_siswa->nama_siswa = $request->nama_siswa;
         $data_siswa->NISN = $request->NISN;
         $data_siswa->NIS = $request->NIS;
-        $data_siswa->id_tahun_ajaran = $request->id_tahun_ajaran;
+        // $data_siswa->id_tahun_ajaran = $request->id_tahun_ajaran;
         $data_siswa->status_siswa = $request->status_siswa;
         $data_siswa->save();
         Alert::success('Data Berhasil Ditambahkan');

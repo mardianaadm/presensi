@@ -43,6 +43,7 @@ Route::resource('presensi_siswa', 'PresensiSiswaController');
 Route::resource('presensi', 'PresensiController');
 Route::resource('rekap_presensi', 'RekapPresensiController');
 Route::resource('detail_data_siswa', 'DetailDataSiswaController');
+Route::resource('lihatdatasiswa', 'DataKelasSiswaController');
 Route::get('downloadExcel', 'MaatwebsiteDemoController@downloadExcel');
 Route::post('importExcel', 'MaatwebsiteDemoController@importExcel');
 

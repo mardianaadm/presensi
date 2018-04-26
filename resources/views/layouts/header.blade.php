@@ -71,7 +71,7 @@
               </li>
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="" class="btn btn-flat btn-normal">Ubah Password</a>
+                  <a href="" class="btn btn-flat btn-normal" data-toggle="modal" data-target="#modal-default">Ubah Password</a>
                 </div>
               </li>
             </ul>
