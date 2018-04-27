@@ -97,8 +97,13 @@
                       <td>{{ $value->nama_jurusan }}</td>
                       <td>{{ $value->nama_urutan_kelas }}</td>
                       <td>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-ubah{{ $value->id_kelas }}">Ubah</button>
-                        <a href="{{ url('kelas_siswa/'.$value->tingkat.'/'.$value->nama_jurusan.'/'.$value->nama_urutan_kelas) }}" class="btn btn-success">Lihat Data Siswa</a>
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah">
+                        <span class="glyphicon glyphicon-eye-open">Lihat
+                        </span></button>
+                        
+                        <span data-toggle="tooltip" title="Ubah" style="padding-left: 20px;"><i class="fa fa-edit" style="color: #2ECC71" type="button" data-toggle="modal" data-target="#modal-ubah{{ $value->id_kelas }}"></i></span>
+
+                        <span data-toggle="tooltip" title="Lihat Data Siswa" style="padding-left: 20px;"><a href="{{ url('kelas_siswa/'.$value->tingkat.'/'.$value->nama_jurusan.'/'.$value->nama_urutan_kelas) }}"><i class="fa fa-eye" style="color: #337AFF"></i></a></span>
                       </td>
                     </tr>
                     <!---POP UP EDIT DATA KELAS-->

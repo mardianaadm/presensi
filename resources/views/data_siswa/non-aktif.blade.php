@@ -3,7 +3,7 @@
 @section('content')
 <body>
   <section class="content-header">
-    <h1>Non Aktif Siswa</h1></br>
+    <h1><b>Non Aktif Siswa</b></h1></br>
     <div class="row">
       <div class="col-xs-12">
         <div class="box box-success">
@@ -16,10 +16,10 @@
             <div>
               <div class="form-horizontal">
               <div class="form-group">
-                <label for="nama_jurusan" class="col-md-2 control-label">Kelas</label>
+                <label for="nama_jurusan" class="col-md-4 control-label">Kelas</label>
                   <div class="col-md-6">
                     <label>
-                      <select id="nama_kelas" class="form-control" name="id_kelas" required>
+                      <select id="nama_kelas" class="form-control" name="id_kelas" style="width: 335px;" required>
                         <option value="">---</option>
                         @foreach($kelas_siswa as $value)
                           <option value="{{$value->id_kelas_siswa}}">{{$value->tingkat}} {{$value->nama_jurusan}} {{$value->nama_urutan_kelas}}</option>
@@ -31,7 +31,7 @@
               </div>
             </div>
                   <div class="box-footer">
-                    <div class="col-md-2"></div>
+                    <div class="col-md-4"></div>
                     <button type="submit" class="btn btn-success">Simpan</button>
                   </div>
                 </form>

@@ -83,7 +83,13 @@ class KelasSiswaController extends Controller
     public function show($tingkat, $jurusan, $urutan)
     {
         $tahun_ajaran = TahunAjaran::all();
-        $kelas_siswa = KelasSiswa::all();
+        $kelas_siswa = KelasSiswa::query()
+        ->join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
+        ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
+        ->where('kelas_siswa.tingkat', $tingkat)
+        ->where('jurusan.nama_jurusan', $jurusan)
+        ->where('urutan_kelas.nama_urutan_kelas', $urutan)
+        ->get();
         $data_siswa = DB::table('data_siswa')
         ->whereNotIn('id_siswa', function($q){
             $q->select('id_siswa')->from('data_siswa');
@@ -95,6 +101,7 @@ class KelasSiswaController extends Controller
         ->join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
         ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
         ->join('data_siswa','data_siswa.id_siswa','=','data_kelas_siswa.id_siswa')
+        ->join('tahun_ajaran','tahun_ajaran.id_tahun_ajaran','=','data_siswa.id_tahun_ajaran')
         ->where('kelas_siswa.tingkat', $tingkat)
         ->where('jurusan.nama_jurusan', $jurusan)
         ->where('urutan_kelas.nama_urutan_kelas', $urutan)
@@ -102,7 +109,8 @@ class KelasSiswaController extends Controller
         return view('kelas_siswa/detail_data_siswa')
         ->with('data_siswa', $data_siswa)
         ->with('data_kelas_siswa', $data_kelas_siswa)
-        ->with('tahun_ajaran', $tahun_ajaran);
+        ->with('tahun_ajaran', $tahun_ajaran)
+        ->with('kelas_siswa', $kelas_siswa);
     }
 
     /**

@@ -19,10 +19,13 @@
                 <label for="inputNISN" class="col-sm-2 control-label">NISN</label>
                 <div class="col-sm-4">
                   <input type="text" name="NISN" class="form-control" id="inputNISN" placeholder="NISN">
+                  @foreach($kelas_siswa as $value)
+                  <input type="hidden" name="id_kelas_siswa" class="form-control" id="inputNISN" placeholder="NISN" value="{{$value->id_kelas_siswa}}">
+                  @endforeach
                 </div></br>
                 <!-- UNDUH TEMPLATE -->
                 <div class="col-sm-4 pull-right">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-unduhtemplate">Unduh Template</button></div>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-unduhtemplate" style="width: 200px">Unduh Template</button></div>
                   <div class="modal fade" id="modal-unduhtemplate">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -66,7 +69,7 @@
                     </div></br>
                     <!-- UNGGAH FILE -->
                     <div class="col-sm-4 pull-right">
-                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-unggahfile">Unggah File</button></div>
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-unggahfile" style="width: 200px">Unggah File</button></div>
                       <div class="modal fade" id="modal-unggahfile">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -119,10 +122,11 @@
                       <div class="form-group">
                         <label for="nama_tahun_ajaran" class="col-md-2 control-label">Tahun Ajaran</label>
                         <div class="col-md-6">
-                          <label class="col-xs-8">
+                          <label>
                             @foreach($tahun_ajaran as $value)
                             @if($value->status_tahun_ajaran == 'Aktif') <!--menampilkan data yg aktif dari tahun ajaran-->
-                            <input type="text" name="tahun_ajaran" value="{{$value->id_tahun_ajaran}}" readonly="">
+                            <input type="hidden" name="tahun_ajaran" class="form-control" value="{{$value->id_tahun_ajaran}}" readonly style="width: 335px">
+                            <input type="text" name="masa_tahun_ajaran" class="form-control" value="{{$value->masa_tahun_ajaran}}" readonly style="width: 335px">
                             @endif
                             @endforeach
                           </label>
@@ -178,7 +182,7 @@
                       </thead>
 
                       <?php $i = 1; ?>
-                      @foreach($data_siswa as $value)
+                      @foreach($data_kelas_siswa as $value)
                       <tr>
                         <td>{{ $i }}</td>
                         <td>{{ $value->NISN }}</td>

@@ -115,7 +115,7 @@
 			                    <td>{{ $value->jk_user }}</td>
 			                    <td>{{ $value->status_user }}</td>
 			                    <td>
-                            		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-ubahdataguru">Ubah</button>
+                            		<span data-toggle="tooltip" title="Ubah" style="padding-left: 20px;"><i class="fa fa-edit" style="color: #00a65a" type="button" data-toggle="modal" data-target="#modal-ubahdataguru"></i></span>
                           		</td>
 		                  	</tr>
 		                  	<!---POP UP EDIT DATA KELAS-->

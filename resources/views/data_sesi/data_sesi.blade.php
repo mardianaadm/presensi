@@ -25,7 +25,7 @@
                         <td>{{ $value->nama_sesi }}</td>
                         <td>{{ $value->jam }}</td>
                         <td>
-                           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-ubah{{ $value->id_sesi }}">Ubah</button>
+                           <span data-toggle="tooltip" title="Ubah" style="padding-left: 20px;"><i class="fa fa-edit" style="color: #00a65a" type="button" data-toggle="modal" data-target="#modal-ubah{{ $value->id_sesi }}"></i></span>
                         </td>
                      </tr>
                      <!--POP UP EDIT TAHUN AJARAN-->

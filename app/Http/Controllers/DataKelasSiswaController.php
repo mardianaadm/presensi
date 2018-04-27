@@ -51,13 +51,24 @@ class DataKelasSiswaController extends Controller
 
         $data_kelas_siswa = new DataKelasSiswa;
         $data_kelas_siswa->id_siswa = $data_siswa->id_siswa;
-        $data_kelas_siswa->id_kelas_siswa = 1;
+        $data_kelas_siswa->id_kelas_siswa = $request->id_kelas_siswa;
         $data_kelas_siswa->save();
+
+        $kelas_siswa = KelasSiswa::where('id_kelas_siswa', $data_kelas_siswa->id_kelas_siswa)
+        ->join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
+        ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
+        ->get();
+
+        foreach($kelas_siswa as $lele) {
+            $tingkat = $lele->tingkat;
+            $nama_jurusan = $lele->nama_jurusan;
+            $nama_urutan_kelas = $lele->nama_urutan_kelas;
+        }
+
         Alert::success('Data Berhasil Ditambahkan');
-        return redirect('kelas_siswa')
-        ->with('data_siswa', $data_siswa)
-        ->with('data_kelas_siswa', $data_kelas_siswa)
-        ->with('kelas_siswa', $kelas_siswa);
+        return redirect('kelas_siswa/'.$tingkat.'/'.$nama_jurusan.'/'.$nama_urutan_kelas);
+            // ->with('data_siswa', $data_siswa)
+        // ->with('data_kelas_siswa', $data_kelas_siswa);
     }
 
     /**

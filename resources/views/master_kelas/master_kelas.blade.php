@@ -26,7 +26,7 @@
                           <td>{{ $value->nama_jurusan }}</td>
                           <td>{{ $value->status_jurusan }}</td>
                           <td>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-j{{ $value->id_jurusan }}">Ubah</button>
+                            <span data-toggle="tooltip" title="Ubah" style="padding-left: 20px;"><i class="fa fa-edit" type="button" style="color: #2ECC71" data-toggle="modal" data-target="#modal-j{{ $value->id_jurusan }}"></i></span>
                           </td>
                         </tr>
                         <!---POP UP EDIT JURUSAN-->
@@ -160,7 +160,7 @@
                           <td>{{ $value->nama_urutan_kelas }}</td>
                           <td>{{ $value->status_urutan_kelas }}</td>
                           <td>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-u{{ $value->id_urutan_kelas }}">Ubah</button>
+                            <span data-toggle="tooltip" title="Ubah" style="padding-left: 20px;"><i class="fa fa-edit" type="button" style="color: #2ECC71" data-toggle="modal" data-target="#modal-u{{ $value->id_urutan_kelas }}"></i></span>
                           </td>
                         </tr>
                         <!--POP UP EDIT URUTAN KELAS-->
