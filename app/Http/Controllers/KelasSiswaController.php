@@ -101,6 +101,7 @@ class KelasSiswaController extends Controller
         ->join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
         ->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
         ->join('data_siswa','data_siswa.id_siswa','=','data_kelas_siswa.id_siswa')
+        ->join('tahun_ajaran','data_siswa.id_tahun_ajaran','=','tahun_ajaran.id_tahun_ajaran')
         ->where('kelas_siswa.tingkat', $tingkat)
         ->where('jurusan.nama_jurusan', $jurusan)
         ->where('urutan_kelas.nama_urutan_kelas', $urutan)
