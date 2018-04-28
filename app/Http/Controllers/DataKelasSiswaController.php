@@ -41,8 +41,9 @@
 		*/
     public function store(Request $request)
     {
+			//cek apakah NISN atau NIS sudah digunakan
 			$cek = DataSiswa::where('NISN', $request->NISN)->orWhere('NIS', $request->NIS)->get();
-
+			
 			$kelas_siswa = KelasSiswa::
 			join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
 			->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
