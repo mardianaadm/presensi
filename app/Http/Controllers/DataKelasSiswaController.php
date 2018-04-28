@@ -41,21 +41,8 @@
 		*/
     public function store(Request $request)
     {
-			
-			
-			$data_siswa = new DataSiswa;
-			$data_siswa->nama_siswa = $request->nama_siswa;
-			$data_siswa->NISN = $request->NISN;
-			$data_siswa->NIS = $request->NIS;
-			$data_siswa->id_tahun_ajaran = $request->tahun_ajaran;
-			$data_siswa->status_siswa = $request->status_siswa;
-			$data_siswa->save();
-			
-			$data_kelas_siswa = new DataKelasSiswa;
-			$data_kelas_siswa->id_siswa = $data_siswa->id_siswa;
-			$data_kelas_siswa->id_kelas_siswa = $request->data_kelas_siswa;
-			$data_kelas_siswa->save();
-			
+			$cek = DataSiswa::where('NISN', $request->NISN)->orWhere('NIS', $request->NIS)->get();
+
 			$kelas_siswa = KelasSiswa::
 			join('jurusan','kelas_siswa.id_jurusan','=','jurusan.id_jurusan')
 			->join('urutan_kelas','kelas_siswa.id_urutan_kelas','=','urutan_kelas.id_urutan_kelas')
@@ -68,10 +55,26 @@
 				$urutan = $data->nama_urutan_kelas;
 			}
 			
-			Alert::success('Data Berhasil Ditambahkan');
-			return redirect('kelas_siswa/'.$tingkat.'/'.$jurusan.'/'.$urutan)
-			->with('data_siswa', $data_siswa)
-			->with('data_kelas_siswa', $data_kelas_siswa);
+			if($cek) {
+				Alert::success('Maaf, NISN dan NIS sudah digunakan!');
+			}else{
+				$data_siswa = new DataSiswa;
+				$data_siswa->nama_siswa = $request->nama_siswa;
+				$data_siswa->NISN = $request->NISN;
+				$data_siswa->NIS = $request->NIS;
+				$data_siswa->id_tahun_ajaran = $request->tahun_ajaran;
+				$data_siswa->status_siswa = $request->status_siswa;
+				$data_siswa->save();
+				
+				$data_kelas_siswa = new DataKelasSiswa;
+				$data_kelas_siswa->id_siswa = $data_siswa->id_siswa;
+				$data_kelas_siswa->id_kelas_siswa = $request->data_kelas_siswa;
+				$data_kelas_siswa->save();
+				
+				Alert::success('Data Berhasil Ditambahkan');
+			}
+			
+			return redirect('kelas_siswa/'.$tingkat.'/'.$jurusan.'/'.$urutan);
 		}
 		
     /**
