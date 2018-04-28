@@ -1,0 +1,30 @@
+*{margin:0px auto;}
+body{
+	background:#fafafa; 
+	font-size:16px; 
+	font-family:'Lucida Sans', sans-serif;}
+
+form{padding:20px;}
+form label{
+	display:inline-block !important; 
+	position:relative !important; 
+	cursor:pointer !important; 
+	line-height:30px !important; 
+	vertical-align: top !important;}
+
+/*MULAI MENDESAIN CUSTOM CHECKBOX DAN RADIO BUTTON*/
+form .form-check{
+	display:inline-block; 
+	position:relative; 
+	width:50px; 
+	height:25px;}
+
+form .form-check::before{
+	content:""; 
+	display:inline-block; 
+	position:relative; 
+	width:50px; 
+	height:25px; 
+	background:#fff; 
+	border:1px solid #ddd; 
+	border-radius:30px; -moz-border-radius:30px;}
