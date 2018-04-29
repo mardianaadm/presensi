@@ -55,7 +55,8 @@ class PresensiController extends Controller
         $presensi->id_kelas = $request->id_kelas;
         $presensi->id_user = Auth::user()->id_user;
         $presensi->save();
-        return redirect('presensi_siswa');
+				
+        return redirect('presensi/'.$presensi->id_presensi.'/'.$request->id_kelas);
     }
 
     /**
