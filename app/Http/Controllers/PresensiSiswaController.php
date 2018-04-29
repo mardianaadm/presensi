@@ -9,6 +9,7 @@ use App\DataSiswa;
 use App\KelasSiswa;
 use App\DataKelasSiswa;
 use Response;
+use Alert;
 
 
 class PresensiSiswaController extends Controller

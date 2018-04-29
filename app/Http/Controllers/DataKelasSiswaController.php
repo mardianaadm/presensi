@@ -56,7 +56,7 @@
 				$urutan = $data->nama_urutan_kelas;
 			}
 			
-			if(!empty($cek)) {
+			if(count($cek) > 0) {
 				Alert::success('Maaf, NISN dan NIS sudah digunakan!');
 			}else{
 				$data_siswa = new DataSiswa;
