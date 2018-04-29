@@ -19,7 +19,33 @@
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 @include('sweet::alert')
 @yield('js')
-<script type="">
+
+<script type="text/javascript">
+	$( document ).ready(function() {
+		function getInfo() {
+			var inputs = $("#search").val();
+
+			$.ajax({
+					url: "search/"+inputs,
+					dataType: "json",
+					type: "GET", // Even if its the default value... looks clearer
+					success: function(data){
+						if(data.length != 0){
+							$('#inputNama').val(data[0].nama_siswa);
+						}else{
+							alert('NISN/NIS tidak ditemukan!');
+						}
+					}
+			});
+
+			return false;
+		}
+		$('#infoSubmit').click(getInfo);
+    
+	});
+</script>
+
+<script type="text/javascript">
       /** add active class and stay opened when selected */
 		var url = window.location;
 

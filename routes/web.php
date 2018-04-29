@@ -28,6 +28,7 @@ Route::get('/data_siswa', 'HomeController@data_siswa');
 Route::get('/data_sesi', 'HomeController@data_sesi');
 Route::get('/kelas_siswa/{tingkat}/{jurusan}/{urutan}', 'KelasSiswaController@show') ;
 Route::get('/data_siswa_nonaktif', 'DataSiswaController@show') ;
+Route::get('/search/{id}', 'PresensiSiswaController@search') ;
 
 // Route::get('/tahun_ajaran', 'HomeController@tahun_ajaran');
 

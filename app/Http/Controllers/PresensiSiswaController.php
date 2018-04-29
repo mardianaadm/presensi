@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\PresensiSiswa;
+use App\DataSiswa;
+use Response;
 
 
 class PresensiSiswaController extends Controller
@@ -76,6 +78,13 @@ class PresensiSiswaController extends Controller
     {
         //
     }
+		
+		public function search($id) {
+			$data_siswa = DataSiswa::where('NISN', $id)->orWhere('NIS', $id)->get();
+			
+			return Response::json($data_siswa);
+			
+		}
 
     /**
      * Remove the specified resource from storage.
