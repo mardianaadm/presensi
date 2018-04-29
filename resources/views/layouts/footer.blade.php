@@ -26,7 +26,7 @@
 			var inputs = $("#search").val();
 
 			$.ajax({
-					url: "search/"+inputs,
+					url: "/search/"+inputs,
 					dataType: "json",
 					type: "GET", // Even if its the default value... looks clearer
 					success: function(data){

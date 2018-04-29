@@ -69,6 +69,13 @@ class PresensiSiswaController extends Controller
 				
         return Redirect::to('presensi/'.$request->id_presensi.'/'.$request->id_kelas_siswa);
     }
+		
+		public function search($nisn) {
+			$data_siswa = DataSiswa::where('NISN', $nisn)->orWhere('NIS', $nisn)->get();
+			
+			return Response::json($data_siswa);
+			
+		}
 
     /**
      * Display the specified resource.
@@ -116,13 +123,6 @@ class PresensiSiswaController extends Controller
     {
         //
     }
-		
-		public function search($id) {
-			$data_siswa = DataSiswa::where('NISN', $id)->orWhere('NIS', $id)->get();
-			
-			return Response::json($data_siswa);
-			
-		}
 
     /**
      * Remove the specified resource from storage.
